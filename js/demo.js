@@ -5,8 +5,8 @@
 
 // jQuery plugin example:
 $(document).ready(function() {
-  $('#particles').particleground({
-    dotColor: '#5cbdaa',
-    lineColor: '#5cbdaa'
-  });
+    $('#particles').particleground({
+        dotColor: 'white',
+        lineColor: 'white'
+    });
 })
