@@ -1,0 +1,14 @@
+/* particleground demo */
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#particles {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
