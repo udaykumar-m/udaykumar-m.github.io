@@ -3,49 +3,301 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        
         <link rel="stylesheet" href="css/style.css" />
-        <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
-        <script type='text/javascript' src='js/jquery.particleground.min.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
         <script type='text/javascript' src='js/demo.js'></script>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="icon" href="img/logo.png">
-        <title>Uday Kumar</title>
+        <title>Uday Kumar | Portfolio</title>
     </head>
 
-    <body
+    <body>
         <div class="front">
             <div class="circle top-circle"></div>
             <div class="circle bottom-circle"></div>
             <div class="page">
-                <div class="container">
+                <div class="container glitch-container">
                     <div class="card" data-tilt data-tilt-max="5" data-tilt-speed="900" data-tilt-perspective="1000">
                         <div class="content">
-                            <div class="header-data">
-                                <img src="../img/uday.jpeg">
+                            <div class="header-data glitch-img">
+                                <div class="status-active">ONLINE</div>
+                                <img src="img/uday.jpeg" alt="Uday Kumar">
                             </div>
                             <div class="center-data">
-                                <h4>UDAY KUMAR</h4>
-                                <!-- Senior QA || Devops || Freelance WebDev -->
-                                <span></span>
+                                <h4 class="glitch" data-text="UDAY KUMAR">UDAY KUMAR</h4>
+                                <span class="cyber-subtitle">Software Engineer</span>
+                                <div class="level-badge">LVL 05+ Experience</div>
+                                <a href="tel:+919059265049" class="main-contact-badge" style="margin-top: 10px; cursor: pointer;">
+                                    <i class="fa fa-phone"></i> +91 90592 65049
+                                </a>
+                                <div class="tech-badges">
+                                    <span class="tech-badge">MERN</span>
+                                    <span class="tech-badge">Flutter</span>
+                                    <span class="tech-badge">DevOps</span>
+                                </div>
                             </div>
                             <ul class="footer-data">
-                                <li>
-                                    <i class="fa fa-github" aria-hidden="true"></i>
-                                </li>
-                                <li>
-                                    <a href="https://instagram.com/uday_kumar___" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </li>
-                                <li>
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </li>
+                                <li><a href="https://github.com/udaykumar-m" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                                <li><a href="https://instagram.com/uday_kumar___" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/udaykumar-m/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="mailto:developeruday007@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="info-layout-wrapper">
+                        <div class="folder-tabs-wrapper">
+                            <div class="folder-tabs">
+                                <a href="#" onclick="showSection('about', this); return false;" class="tab active-nav" title="About Me">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="tab-name">About Me</span>
+                                </a>
+                                <a href="#" onclick="showSection('skills', this); return false;" class="tab" title="Skills">
+                                    <i class="fa fa-code" aria-hidden="true"></i>
+                                    <span class="tab-name">Skills & Projects</span>
+                                </a>
+                                <a href="#" onclick="showSection('projects', this); return false;" class="tab" title="Projects">
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span class="tab-name">Experience</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-content">
+                                <section id="about" class="active-section">
+                                    <div class="section-block cyber-block">
+                                        <h2 class="dev-profile-title glitch" data-text="DEVELOPER PROFILE">DEVELOPER PROFILE</h2>
+                                        <span class="dev-subtitle">System Identity Loaded <i class="fa fa-check-circle" style="color:var(--neon-green); margin-left:5px;"></i></span>
+                                        <div class="title-underline"></div>
+                                        
+                                        <div class="cyber-paragraph">
+                                            I’m a passionate Software Engineer specializing in MERN Stack, Flutter, and modern web technologies, focused on building fast, scalable, and user-friendly digital products. I’ve worked on multiple freelance projects for clients, delivering custom websites and applications tailored to their business needs with a strong focus on quality and performance.<br><br>
+                                            With hands-on experience in both web and mobile development, I enjoy transforming ideas into impactful real-world solutions, from responsive business websites to cross-platform mobile apps, delivering clean design, smooth functionality, and reliable user experiences while continuously exploring new technologies, improving my skills, and helping businesses grow through clear communication and dependable results.
+                                        </div>
+
+                                        <div class="stat-cards-grid">
+                                            <div class="stat-card">
+                                                <i class="fa fa-terminal stat-icon"></i>
+                                                <span class="stat-text">5+ Years XP</span>
+                                            </div>
+                                            <div class="stat-card">
+                                                <i class="fa fa-briefcase stat-icon"></i>
+                                                <span class="stat-text">Freelancer</span>
+                                            </div>
+                                            <div class="stat-card">
+                                                <i class="fa fa-star stat-icon"></i>
+                                                <span class="stat-text">Happy Clients</span>
+                                            </div>
+                                            <div class="stat-card">
+                                                <i class="fa fa-mobile stat-icon"></i>
+                                                <span class="stat-text">Web + Mobile</span>
+                                            </div>
+                                            <div class="stat-card">
+                                                <i class="fa fa-rocket stat-icon"></i>
+                                                <span class="stat-text">Fast Delivery</span>
+                                            </div>
+                                            <div class="stat-card">
+                                                <i class="fa fa-code stat-icon"></i>
+                                                <span class="stat-text">Clean Code</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <section id="skills" style="display:none;">
+                                    <div class="section-block cyber-block">
+                                        <h3 class="section-title glitch" data-text="TECH ARSENAL">TECH ARSENAL</h3>
+                                        <p class="cyber-subtitle" style="margin-bottom: 20px;">EQUIPPED ABILITIES & LOADOUT</p>
+
+                                        <div class="inventory-grid">
+                                            <div class="inventory-slot rare">
+                                                <i class="fa fa-code inventory-icon"></i>
+                                                <span class="inventory-name">MERN Stack</span>
+                                            </div>
+                                            <div class="inventory-slot">
+                                                <i class="fa fa-mobile inventory-icon"></i>
+                                                <span class="inventory-name">Flutter</span>
+                                            </div>
+                                            <div class="inventory-slot rare">
+                                                <i class="fa fa-server inventory-icon"></i>
+                                                <span class="inventory-name">DevOps</span>
+                                            </div>
+                                            <div class="inventory-slot">
+                                                <i class="fa fa-database inventory-icon"></i>
+                                                <span class="inventory-name">Firebase</span>
+                                            </div>
+                                            <div class="inventory-slot rare">
+                                                <i class="fa fa-microchip inventory-icon"></i>
+                                                <span class="inventory-name">OpenAI</span>
+                                            </div>
+                                            <div class="inventory-slot">
+                                                <i class="fa fa-wifi inventory-icon"></i>
+                                                <span class="inventory-name">WebRTC</span>
+                                            </div>
+                                            <div class="inventory-slot rare">
+                                                <i class="fa fa-leaf inventory-icon"></i>
+                                                <span class="inventory-name">MongoDB</span>
+                                            </div>
+                                            <div class="inventory-slot">
+                                                <i class="fa fa-database inventory-icon"></i>
+                                                <span class="inventory-name">PostgreSQL</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="action-buttons-grid" style="margin-top: 40px;">
+                                            <a href="./img/UdayKumarResume.pdf" target="_blank" class="cyber-btn"><i class="fa fa-download"></i> Resume </a>
+                                        </div>
+                                        <h3 class="section-title glitch" data-text="QUEST LOG" style="margin-top: 40px;">QUEST LOG</h3>
+                                        <p class="cyber-subtitle" style="margin-bottom: 20px;">ACTIVE & COMPLETED MISSIONS</p>
+                                        
+                                        <div class="quests-grid">
+                                            
+                                            <div class="quest-card">
+                                                <div class="quest-image-block">
+                                                    <div class="quest-placeholder-image">
+                                                        <i class="fa fa-image"></i>
+                                                        <span>IMAGE<br>PLACEHOLDER</span>
+                                                    </div>
+                                                </div>
+                                                <div class="quest-content">
+                                                    <div class="quest-header">
+                                                        <h4 class="quest-title"><a href="https://github.com/udaykumar-m/TuneUp" target="_blank" class="cyber-link">Tune Up <i class="fa fa-external-link"></i></a></h4>
+                                                        <span class="quest-status in-progress">Under Development</span>
+                                                    </div>
+                                                    <div class="quest-desc">
+                                                        <ul>
+                                                            <li>Tune Up, a music application that allows users to play local device songs and search or stream music through the YouTube integration. It also supports shared listening rooms where friends can join, chat, and enjoy music together in real time.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="quest-skills">
+                                                        <span class="tech-badge">Flutter</span>
+                                                        <span class="tech-badge">WebRTC</span>
+                                                        <span class="tech-badge">Youtube API</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="quest-card">
+                                                <div class="quest-image-block" style="flex-direction: column; gap: 15px;">
+                                                    <div class="quest-placeholder-image" style="height: 120px;">
+                                                        <i class="fa fa-image"></i>
+                                                        <span>IMAGE<br>PLACEHOLDER</span>
+                                                    </div>
+                                                    <div style="color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 5px 12px; border-radius: 15px; background: rgba(0, 255, 255, 0.1); font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); text-align: center;">
+                                                        <i class="fa fa-download"></i> 500+ Installs
+                                                    </div>
+                                                </div>
+                                                <div class="quest-content">
+                                                    <div class="quest-header">
+                                                        <h4 class="quest-title"><a href="https://github.com/udaykumar-m/OpenAI-App" target="_blank" class="cyber-link">AI Pal<i class="fa fa-external-link"></i></a></h4>
+                                                        <span class="quest-status completed">Mission Completed</span>
+                                                    </div>
+                                                    <div class="quest-desc">
+                                                        <ul>
+                                                            <li>AI Pal, a mobile application that delivers daily random quotes on selected topics with meanings, usage examples, Instagram captions, and tweet generation based on user input. Securely store, Share quotes without requiring user login.</li>
+                                                            <li>Achieved 258 installs within two months of launch, demonstrating strong user engagement.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="quest-skills">
+                                                        <span class="tech-badge">Flutter</span>
+                                                        <span class="tech-badge">OpenAI</span>
+                                                        <span class="tech-badge">Firebase</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="quest-card">
+                                                <div class="quest-image-block" style="flex-direction: column; gap: 15px;">
+                                                    <div class="quest-placeholder-image" style="height: 120px;">
+                                                        <i class="fa fa-image"></i>
+                                                        <span>IMAGE<br>PLACEHOLDER</span>
+                                                    </div>
+                                                    <div style="color: var(--neon-cyan); border: 1px solid var(--neon-cyan); padding: 5px 12px; border-radius: 15px; background: rgba(0, 255, 255, 0.1); font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); text-align: center;">
+                                                        <i class="fa fa-download"></i> 200+ Users
+                                                    </div>
+                                                </div>
+                                                <div class="quest-content">
+                                                    <div class="quest-header">
+                                                        <h4 class="quest-title"><a href="https://github.com/udaykumar-m/chromeExtension" target="_blank" class="cyber-link">AI Pal<i class="fa fa-external-link"></i></a></h4>
+                                                        <span class="quest-status completed">Mission Completed</span>
+                                                    </div>
+                                                    <div class="quest-desc">
+                                                        <ul>
+                                                            <li>AI Pal, a multifunctional Google Chrome extension that delivers jokes on launch and provides instant word definitions with usage examples for selected text. Integrated AI-powered caption generation for Instagram and Twitter to enhance user productivity and engagement.</li>
+                                                            <li>Achieved 200+ installs within two months of launch, demonstrating strong user engagement.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="quest-skills">
+                                                        <span class="tech-badge">JavaScript</span>
+                                                        <span class="tech-badge">OpenAI</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="quest-card">
+                                                <div class="quest-image-block">
+                                                    <div class="quest-placeholder-image">
+                                                        <i class="fa fa-image"></i>
+                                                        <span>IMAGE<br>PLACEHOLDER</span>
+                                                    </div>
+                                                </div>
+                                                <div class="quest-content">
+                                                    <div class="quest-header">
+                                                        <h4 class="quest-title"><a href="" class="cyber-link">TrackWise</a></h4>
+                                                        <span class="quest-status completed">Mission Completed</span>
+                                                    </div>
+                                                    <div class="quest-desc">
+                                                        <ul>
+                                                            <li>Developed a location tracking application using JavaScript, Map APIs, and Firebase to monitor user locations, validate travel routes, and calculate distances traveled in real time.</li>
+                                                            <li>Built a mobile application that continuously captured location data and remained reliable during offline or unstable network conditions by storing data locally and automatically syncing once connectivity was available.</li>
+                                                            <li>Implemented automated wage calculation logic based on verified travel distance and expected location checkpoints, improving payroll accuracy and operational tracking.</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="quest-skills">
+                                                        <span class="tech-badge">JavaScript</span>
+                                                        <span class="tech-badge">Android</span>
+                                                        <span class="tech-badge">Firebase</span>
+                                                        <span class="tech-badge">HTML CSS</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                <section id="projects" style="display:none;">
+                                    <div class="section-block cyber-block">
+                                        <h3 class="section-title glitch" data-text="Career Quest">Career Quest</h3>
+                                        <p class="cyber-subtitle" style="margin-bottom: 20px;"></p>
+
+                                        
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <script>
+                    function showSection(sectionId, element) {
+                        // Hide all sections
+                        document.querySelectorAll('.info-content section').forEach(sec => sec.style.display = 'none');
+                        // Show target section
+                        document.getElementById(sectionId).style.display = 'block';
+                        
+                        // Update nav buttons
+                        document.querySelectorAll('.folder-tabs .tab').forEach(nav => nav.classList.remove('active-nav'));
+                        element.classList.add('active-nav');
+                    }
+                </script>
             </div>
         </div>
         <div id="particles">
