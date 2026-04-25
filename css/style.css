@@ -173,7 +173,6 @@ a {
   transform: scale(1.2);
 }
 
-/* INFO CARD & FOLDER TABS */
 .info-layout-wrapper {
   flex: 1;
   display: flex;
@@ -209,10 +208,9 @@ a {
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
   position: relative;
-  top: 1px; /* Overlap border */
+  top: 1px;
 }
 
-/* Folder tab active state -> shows text and glows */
 .folder-tabs .tab .tab-name {
   display: none;
 }
@@ -266,7 +264,6 @@ a {
   color: #fff;
 }
 
-/* ABOUT ME / PROFILE STYLES */
 .profile-details {
   display: flex;
   flex-direction: column;
@@ -304,7 +301,6 @@ a {
   line-height: 1.5;
 }
 
-/* SKILLS STYLES */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -357,7 +353,6 @@ a {
   box-shadow: 0 0 20px var(--neon-cyan);
 }
 
-/* PROJECTS / TIMELINE */
 .timeline-container {
   position: relative;
   padding-left: 40px;
@@ -434,7 +429,6 @@ a {
   text-decoration: none;
 }
 
-/* GLITCH EFFECT */
 .glitch {
   position: relative;
   display: inline-block;
@@ -484,7 +478,6 @@ a {
   100% { clip: rect(90px, 9999px, 5px, 0); }
 }
 
-/* Scrollbar */
 .info-card::-webkit-scrollbar { width: 6px; }
 .info-card::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.5); }
 .info-card::-webkit-scrollbar-thumb { background: var(--neon-cyan); border-radius: 10px; }
@@ -520,7 +513,6 @@ a {
   }
 }
 
-/* CYBERPUNK PROFILE EXTRAS */
 .status-active {
   position: absolute;
   bottom: 0px;
@@ -694,7 +686,6 @@ a {
   letter-spacing: 1px;
 }
 
-/* QUEST CARD STYLES */
 .quests-grid {
   display: flex;
   flex-direction: column;
@@ -854,7 +845,6 @@ a {
   }
 }
 
-/* TECH ARSENAL / INVENTORY STYLES */
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -925,4 +915,219 @@ a {
 .inventory-slot.rare .inventory-icon {
     color: var(--neon-cyan);
     text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.career-stats-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.2);
+}
+
+.career-stat-badge {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.1);
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.career-stat-badge:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.career-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.career-timeline-line {
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--neon-cyan), var(--neon-cyan) 60%, var(--neon-magenta) 90%, transparent);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.career-mission-row {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.career-mission-row:last-child {
+    margin-bottom: 0px;
+}
+
+.career-node {
+    position: absolute;
+    left: -40px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    background: #111;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-cyan);
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.career-mission-row:hover .career-node {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px var(--neon-magenta);
+    color: #fff;
+    border-color: var(--neon-magenta);
+}
+
+.career-card {
+    background: rgba(15, 20, 30, 0.85);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+    border-left: 3px solid var(--neon-cyan);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.career-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 255, 0.03) 2px, rgba(0, 255, 255, 0.03) 4px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.career-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.career-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15);
+    transform: translateY(-3px) translateX(5px);
+}
+
+.career-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mission-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.mission-status {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    color: #aaa;
+}
+
+.mission-status span {
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    background: rgba(57, 255, 20, 0.1);
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-left: 5px;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+}
+
+.mission-role {
+    color: var(--neon-magenta);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mission-body {
+    color: #ccc;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.mission-skills-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--neon-cyan);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mission-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+@media (max-width: 600px) {
+    .career-stats-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .career-stats-container::-webkit-scrollbar {
+        height: 4px;
+    }
+    .career-stats-container::-webkit-scrollbar-thumb {
+        background: var(--neon-cyan);
+        border-radius: 10px;
+    }
+    
+    .career-timeline {
+        padding-left: 20px;
+    }
+    
+    .career-timeline-line {
+        left: 0;
+    }
+    
+    .career-node {
+        left: -20px;
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        top: 20px;
+    }
+
+    .career-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
