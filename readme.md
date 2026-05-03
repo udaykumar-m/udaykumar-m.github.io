@@ -97,16 +97,6 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=udaykumar-m&theme=tokyonight" />
 </p>
 
----
-
-## 🐍 Contribution Snake
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/udaykumar-m/udaykumar-m/output/snake.svg" alt="snake animation" />
-</p>
-
----
-
 ## 🤝 Let's Connect
 
 If you want to:
