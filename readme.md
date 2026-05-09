@@ -1,115 +1,43 @@
-<h1 align="center">Hi 👋, I'm Uday Kumar</h1>
-<h3 align="center">🚀 MERN + Flutter Developer | Building Scalable Web & Mobile Apps</h3>
+# 🌐 Uday Kumar | Senior Software Engineer
 
-<p align="center">
-  <a href="https://udaykumar-m.github.io/">Portfolio</a> •
-  <a href="https://github.com/udaykumar-m">GitHub</a> •
-  <a href="mailto:developeruday007@gmail.com">Email</a> •
-  <a href="https://linkedin.com/in/udaykumar-m">LinkedIn</a>
-</p>
+![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![MERN](https://img.shields.io/badge/MERN-Full%20Stack-brightgreen?style=flat-square)
+![Flutter](https://img.shields.io/badge/Flutter-Mobile-blue?style=flat-square)
+![DevOps](https://img.shields.io/badge/DevOps-Infrastructure-orange?style=flat-square)
 
----
+## About
 
-## 👨‍💻 About Me
+Interactive portfolio showcasing 5+ years of full-stack development experience. Built with modern frontend skills including HTML5, CSS3, and vanilla JavaScript with interactive animations and responsive design.
 
-- 💼 5+ years experience in **Full Stack & Mobile Development**
-- ⚡ Specialized in **MERN + Flutter**
-- 🧠 Exploring **AI + Local Models**
-- 🛠️ Strong in **DevOps & CI/CD pipelines**
-- 🎯 Focused on building **real-world scalable products**
+## What I Do
 
----
+- **Full-Stack Development** - MERN Stack (React, Node.js, MongoDB, Express)
+- **Mobile Development** - Flutter for cross-platform apps
+- **DevOps & Infrastructure** - Cloud deployment and optimization
+- **Web Design** - Modern UI/UX with animations and glassmorphism
 
-## 🧰 Tech Stack
+## Tech Stack
 
-### 🌐 Web
+**Languages**: JavaScript, Python, Dart, SQL  
+**Frontend**: React, HTML5, CSS3, jQuery  
+**Backend**: Node.js, Express, Firebase  
+**Database**: MongoDB, PostgreSQL  
+**Tools**: Docker, Git, REST APIs, WebRTC
 
-`React.js` `Node.js` `JavaScript` `MongoDB` `PostgreSQL` `Firebase`
+## Projects Highlight
 
-### 📱 Mobile
+- **Tune Up** - Music streaming app with shared listening rooms (Flutter, WebRTC, YouTube API) - 500+ installs
+- Multiple freelance projects delivering custom websites and applications
 
-`Flutter` `Dart` `Bloc` `REST APIs`
+## View Full Portfolio
 
-### ⚙️ DevOps & Tools
-
-`Docker` `Jenkins` `Linux` `Python` `Git`
-
----
-
-## 🚀 Experience
-
-### 🏢 Senior Software Engineer – Technical (iSpace)
-
-- Working on enterprise applications (Client: Korn Ferry)
-- Micro frontend exposure
-- Full-stack bug fixes & feature enhancements
-
-### 🏢 Senior Product Developer (Inncircles)
-
-- Built **React dashboard for gated communities**
-- Developed **Flutter mobile app (Android & iOS)**
-- Contributed to backend APIs (Node.js)
-
-### 🏢 Software Engineer (Spreadsheet.com)
-
-- Worked on **MERN + Flask**
-- Improved onboarding & UI revamp
-- Contributed to **$120K+ ARR growth**
-- Managed **CI/CD + Docker workflows**
+🌐 **Live Site**: https://udaykumar-m.github.io  
+📄 **Resume**: Available on portfolio  
+💼 **LinkedIn**: https://www.linkedin.com/in/udaykumar-m/  
+🐙 **GitHub**: https://github.com/udaykumar-m
 
 ---
 
-## 💡 Projects
-
-### 🔹 AI Pal (Flutter App)
-
-- Daily quotes + captions + tweet generator
-- Firebase-based storage (no login needed)
-- 🚀 100+ users in first week
-
-### 🔹 AI Chrome Extension
-
-- Generates jokes + word meanings
-- Social caption generator
-- 📈 250+ installs in 2 months
-
-### 🔹 Tune Up (In Progress)
-
-- 🎵 Real-time shared music listening
-- WebRTC-based sync
-- YouTube API + local playback
-
----
-
-## 🧠 What I Build
-
-- Full-stack SaaS apps
-- Mobile apps with real users
-- Dev tools & extensions
-- AI-powered utilities
-
----
-
-## 📈 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=udaykumar-m&show_icons=true&theme=tokyonight" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=udaykumar-m&theme=tokyonight" />
-</p>
-
-## 🤝 Let's Connect
-
-If you want to:
-
-- 🚀 Build a product
-- 💡 Discuss ideas
-- 🤖 Talk AI / Tech
-- ☕ Or just chat
-
-👉 Feel free to reach out!
-
----
-
-## ⚡ Fun Fact
-
-I turn ideas into real apps faster than most people write documentation 😄
+_All details, projects, and interactive content available on the portfolio website above._
