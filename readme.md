@@ -26,17 +26,11 @@ Interactive portfolio showcasing 5+ years of full-stack development experience. 
 **Database**: MongoDB, PostgreSQL  
 **Tools**: Docker, Git, REST APIs, WebRTC
 
-## Projects Highlight
-
-- **Tune Up** - Music streaming app with shared listening rooms (Flutter, WebRTC, YouTube API) - 500+ installs
-- Multiple freelance projects delivering custom websites and applications
-
 ## View Full Portfolio
 
 🌐 **Live Site**: https://udaykumar-m.github.io  
 📄 **Resume**: Available on portfolio  
-💼 **LinkedIn**: https://www.linkedin.com/in/udaykumar-m/  
-🐙 **GitHub**: https://github.com/udaykumar-m
+💼 **LinkedIn**: https://www.linkedin.com/in/udaykumar-m/
 
 ---
 
