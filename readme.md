@@ -1,11 +1,11 @@
 # 🌐 Uday Kumar | Senior Software Engineer
 
-![HTML5](https://img.shields.io/badge/HTML5-E34C26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![MERN](https://img.shields.io/badge/MERN-Full%20Stack-brightgreen?style=flat-square)
-![Flutter](https://img.shields.io/badge/Flutter-Mobile-blue?style=flat-square)
-![DevOps](https://img.shields.io/badge/DevOps-Infrastructure-orange?style=flat-square)
+<img src="https://img.shields.io/badge/HTML5-E34C26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" style="pointer-events: none; user-select: none;">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" style="pointer-events: none; user-select: none;">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" style="pointer-events: none; user-select: none;">
+<img src="https://img.shields.io/badge/MERN-Full%20Stack-brightgreen?style=flat-square" alt="MERN" style="pointer-events: none; user-select: none;">
+<img src="https://img.shields.io/badge/Flutter-Mobile-blue?style=flat-square" alt="Flutter" style="pointer-events: none; user-select: none;">
+<img src="https://img.shields.io/badge/DevOps-Infrastructure-orange?style=flat-square" alt="DevOps" style="pointer-events: none; user-select: none;">
 
 ## About
 
@@ -34,4 +34,4 @@ Interactive portfolio showcasing 5+ years of full-stack development experience. 
 
 ---
 
-_All details, projects, and interactive content available on the portfolio website above._
+_All details, projects and much more available on the portfolio website above._
