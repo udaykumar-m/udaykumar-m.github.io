@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Carousel effect in Android</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/projects.css" rel="stylesheet">
+
+  <link href="../css/prism.css" rel="stylesheet">
+
+  <style type="text/css">
+    .light-blue{
+      color: #00C293;
+    }
+  </style>
+
+</head>
+
+<body id="page-top" class="bg-black">
+    <nav class="bg-black navbar navbar-expand-lg navbar-light" id="mainNav">
+      <a class="js-scroll-trigger" href="../index.html"><img src="../img/logo.png" style="height: 150px; margin-bottom: -20px; margin-top: -20px;"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#projects1">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../list_android.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#signup">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container whole">
+      <h3>Carousel effect in android</h3>
+      <br>
+      <header>
+        <iframe src="https://www.youtube.com/embed/Sr5v9yQWEnU" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </header>
+
+      <section class="my-5">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this tutorial we learn how to code carousel effect in android using viewpager.<br/>
+              Carousel View is an extended ViewPager control that presents a collection of items in circular fashion.For Carousel view in android we use a customized view called as CarouselLinearLayout,which creates the view for coursel effect.<br>
+              Lets see how this coursel effect make work for ourselves.<br>
+              First implement the dependencies to make work coursel view. In build.gradle file add thefollowing dependencies <br>
+              implementation <i style="color: #38AB24">'com.android.support:cardview-v7:28.0.0' <br></i>
+              implementation <i style="color: #38AB24">'com.android.support:support-v4:28.0.0' <br></i><br>
+
+
+              <code>build.gradle</code></h5>
+              <pre id="code">
+                <code class="lang-css">
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.coursel"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+                </code>
+              </pre>
+<h5>
+    Add the followng theme for the application to look nice.In styles.xml file add the followng code: <br><br>
+    <code>styles.xml</code>
+</h5>
+
+ <pre id ="code">
+     <code class="lang-html">
+
+       &lt;resources&gt;
+
+    <!-- Base application theme. -->
+    &lt;style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"&gt;
+        <!-- Customize your theme here. -->
+        &lt;item name="colorPrimary">@color/colorPrimary&lt;/item&gt;
+        &lt;item name="colorPrimaryDark">@color/colorPrimaryDark&lt;/item&gt;
+        &lt;item name="colorAccent">@color/colorAccent&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="Theme.AppCompat.Light.NoActionBar"&gt;
+
+
+        &lt;item name="windowNoTitle">true&lt;/item&gt;
+        &lt;item name="windowActionBar">false&lt;/item&gt;
+        &lt;item name="android:windowFullscreen">true&lt;/item&gt;
+        &lt;item name="android:windowContentOverlay">@null&lt;/item&gt;
+
+
+&lt;/style&gt;
+
+&lt;/resources&gt;
+
+     </code>
+ </pre>
+ <h5>
+   Now look into the main code .Create the custom carousel view in java by creating <span class="light-blue">"CarouselLinearLayout.java"</span>.In this java file we write animation of the images and set the scaling of the images .CarouselLinearLayout i.e. is our custom view which is writtten in java file <span class="light-blue">"CarouselLinearLayout.java"</span> file. Using canvas we draw the outline of the images by setting their height and width.<span class="light-blue">"Canvas"</span> is graphics component in android which does the job of calling Draw method and drawing the shape.<br><br>
+
+
+   <code>CarouselLinearLayout.java</code>
+ </h5>
+ <pre id="code">
+   <code class="lang-js">
+
+     package com.example.coursel;
+
+     import android.content.Context;
+     import android.graphics.Canvas;
+     import android.util.AttributeSet;
+     import android.widget.LinearLayout;
+
+     public class CarouselLinearLayout  extends LinearLayout {
+
+         private float scale = CarouselPagerAdapter.BIG_SCALE;
+
+
+
+         public CarouselLinearLayout(Context context,  AttributeSet attrs) {
+             super(context, attrs);
+         }
+
+         public CarouselLinearLayout(Context context) {
+             super(context);
+         }
+
+         public void setScaleBoth(float scale) {
+             this.scale = scale;
+             this.invalidate();
+         }
+
+         @Override
+         protected void onDraw(Canvas canvas) {
+             super.onDraw(canvas);
+
+             // The main mechanism to display scale animation, you can customize it as your needs
+             int w = this.getWidth();
+             int h = this.getHeight();
+             canvas.scale(scale, scale, w/2, h/2);
+         }
+     }
+
+   </code>
+ </pre>
+              <h5>
+                Now go to the layouts and in activity_main.xml file include the ViewPager view so that in that view we insert our custom view CarouselLinearLayout in fragment file.create id <span class="light-blue">"actvity_main_layout"</span> for the LinearLayout and "my_viewpager" for the viewpager view. <br><br>
+
+
+                <code>activity-main.xml</code>
+              </h5>
+              <pre id="code">
+                <code class="lang-html">
+      &lt;?xml version="1.0" encoding="utf-8"?&gt;
+      &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"CarouselLinearLayout.java
+      android:layout_width="match_parent"
+      android:id="@+id/actvity_main_layout"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      tools:context=".MainActivity"&gt;
+
+      &lt;android.support.v4.view.ViewPager
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:id="@+id/my_viewpager"&gt;
+      &lt;/LinearLayout&gt;
+
+                </code>
+              </pre>
+
+
+              <h5>
+       Now create the new fragment named as <span class="light-blue">"fragment_image"</span> and open the <span class="light-blue">"fragmnet_image.xml"</span> file.In this fragment include CarouselLinearLayout as the rootview and id of the layout is <span class="light-blue">"root_container"</span> and in this layout add the imageView and textView which their id's are "pagerImg" and "text" respectively.<br><br>
+
+
+<code>fragment_image.xml</code>
+              </h5>
+<pre id="code">
+<code class="lang-html">
+  &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;com.example.coursel.CarouselLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageFragment"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/root_container"
+    android:background="@android:color/transparent"&gt;
+
+    &lt;ImageView
+        android:id="@+id/pagerImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/wrinkleintime" /&gt;
+
+    &lt;TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold" /&gt;
+
+
+&lt;/com.example.coursel.CarouselLinearLayout&gt;
+
+</code>
+</pre>
+
+
+<h5>
+  We are now entering the important part of the code which is implementing adapter by using FragmentPagerAdapter by creating the class CarouselPagerAdapter.Now create a constructor for the class and implement the methods getItem , getCount ,which return what are the images and how many of them.Now Override the method onPageSelected to know the current position of the image and their scale of their images.By completing this code we return  the position of the fragment and CarouselLinearLayout by using the methods getRootView and getFragment.<br><br>
+
+  <code>CarouselPagerAdapter.java</code>
+</h5>
+<pre id="code">
+  <code class="lang-js">
+package com.example.coursel;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+
+public class CarouselPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+
+    public final static float BIG_SCALE = 1.0f;
+    public final static float SMALL_SCALE = 0.8f;
+    public final static float DIFF_SCALE = BIG_SCALE - SMALL_SCALE;
+    private MainActivity context;
+    private FragmentManager fm;
+    private float scale;
+
+    public CarouselPagerAdapter(MainActivity context , FragmentManager fm) {
+        super(fm);
+        this.context = context;
+        this.fm = fm;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        // make the first pager bigger than others
+        try {
+            if (position == MainActivity.FIRST_PAGE)
+                scale = BIG_SCALE;
+            else
+                scale = SMALL_SCALE;
+
+            position = position % MainActivity.count;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ImageFragment.newInstance(context, position, scale);
+    }
+
+    @Override
+    public int getCount() {
+
+        int count = 0;
+        try {
+            count = MainActivity.count * MainActivity.LOOPS;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        try {
+            if (positionOffset >= 0f && positionOffset <= 1f) {
+                CarouselLinearLayout cur = getRootView(position);
+                CarouselLinearLayout next = getRootView(position + 1);
+
+                cur.setScaleBoth(BIG_SCALE - DIFF_SCALE * positionOffset);
+                next.setScaleBoth(SMALL_SCALE + DIFF_SCALE * positionOffset);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @SuppressWarnings("ConstantConditions")
+
+    private CarouselLinearLayout getRootView(int position) {
+        return (CarouselLinearLayout) fm.findFragmentByTag(this.getFragmentTag(position))
+                .getView().findViewById(R.id.root_container);
+    }
+
+    private String getFragmentTag(int position) {
+        return "android:switcher:" + context.pager.getId() + ":" + position;
+    }
+
+
+}
+  </code>
+</pre>
+<h5>
+  In <span class="light-blue">"ImageFragment.java"</span> file we intialise the TextView and ImageView by defining them in arrays. We set the layout height and width in this  file. By clicking on the image using the method OnClickListener it opens a newactivity <span class="light-blue">"MovieDetailsActivity"</span> , it displays the image in fullscreen mode. We using displaymetrics class ,we defining the parameters of the image.<br><br>
+   <code>ImageFragment.java</code>
+</h5>
+<pre id="code">
+  <code class="lang-js">
+    package com.example.coursel;
+
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ImageFragment extends Fragment {
+
+    private static final String POSITON = "position";
+    private static final String SCALE = "scale";
+    private static final String DRAWABLE_RESOURE = "resource";
+
+    private int screenWidth;
+    private int screenHeight;
+
+    private int[] imageArray = new int[]{R.drawable.alita, R.drawable.alladin,
+            R.drawable.captain_marvel, R.drawable.dark_pheonix, R.drawable.dark_tower,
+            R.drawable.jurassic_world, R.drawable.valeerian, R.drawable.wrinkleintime};
+
+    private String[] nameArray = new String[]{"Alita","Alladin","Captain Marvel","Dark Pheonix","Dark Tower",
+    "Jurassic World", "Valeerian","Wrinkle In Time"};
+
+
+
+    public ImageFragment() {
+        // Required empty public constructor
+    }
+
+    public static Fragment newInstance(MainActivity context, int pos, float scale) {
+        Bundle b = new Bundle();
+        b.putInt(POSITON, pos);
+        b.putFloat(SCALE, scale);
+
+        return Fragment.instantiate(context, ImageFragment.class.getName(), b);
+    }
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWidthAndHeight();
+    }
+
+    @SuppressLint("SetTextI18n")
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        if(container == null){
+            return  null;
+        }
+
+         final int position = this.getArguments().getInt(POSITON);
+        float scale = this.getArguments().getFloat(SCALE);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(screenWidth/2,screenHeight/2);
+        LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.fragment_image, container, false);
+
+        TextView textView = (TextView) linearLayout.findViewById(R.id.text);
+        CarouselLinearLayout root = (CarouselLinearLayout) linearLayout.findViewById(R.id.root_container);
+        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.pagerImg);
+
+
+        textView.setText(nameArray[position]);
+        imageView.setLayoutParams(layoutParams);
+        imageView.setImageResource(imageArray[position]);
+
+        //handling click event
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
+                intent.putExtra(DRAWABLE_RESOURE, imageArray[position]);
+                startActivity(intent);
+            }
+        });
+
+        root.setScaleBoth(scale);
+
+        return linearLayout;
+    }
+
+    /**
+     * Get device screen width and height
+     */
+    private void getWidthAndHeight() {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        screenHeight = displaymetrics.heightPixels;
+        screenWidth = displaymetrics.widthPixels;
+    }
+
+}
+  </code>
+</pre>
+
+              <h5>
+                In MainActivity we intilaise the  viewpager,FragmentPagerAdapter,FragmentManager to include all the views in this activity. In the MainActivity we define the  viewpager item size to control the array out of bounds execption. we are setting the no of images appear on mainscrren as the method setOffscreenPageLimit() and we set the setOffscreenPageLimit as 3 i.e it appears 3 images in the MainActivity.We include all our adapters,fragments,Viewx in the MainActivity.<br><br>
+                <code>MainActivity.java</code>
+              </h5>
+              <pre id ="code">
+                <code class="lang-js">
+package com.example.coursel;
+
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+
+public class MainActivity extends AppCompatActivity {
+
+    public final static int LOOPS = 1000;
+    public CarouselPagerAdapter adapter;
+    public ViewPager pager;
+    public static int count = 8; //ViewPager items size
+    /**
+     * You shouldn't define first page = 0.
+     * Let define firstpage = 'number viewpager size' to make endless carousel
+     */
+    public static int FIRST_PAGE = 8;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        pager = (ViewPager) findViewById(R.id.my_viewpager);
+
+        //set page margin between pages for viewpager
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int pageMargin = ((metrics.widthPixels / 4) * 2);
+        pager.setPageMargin(-pageMargin);
+
+        adapter = new CarouselPagerAdapter(this, getSupportFragmentManager());
+        pager.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        pager.addOnPageChangeListener(adapter);
+
+        // Set current item to the middle page so we can fling to both
+        // directions left and right
+        pager.setCurrentItem(FIRST_PAGE);
+        pager.setOffscreenPageLimit(3);
+
+    }
+}
+                </code>
+              </pre>
+
+<h5>
+  In activity_moviedetails ,we show the details of the movie such as movie Image , move name and closing button for the MovieDetailsActivity. <br><br>
+  <code>activity_moviedetails.xml</code>
+</h5>
+<pre id="code">
+  <code class="lang-html">
+
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" &gt;
+
+    &lt;ImageView
+        android:id="@+id/img"
+        android:src="@drawable/wrinkleintime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" /&gt;
+
+    &lt;ImageButton
+        android:id="@+id/btnClose"
+        android:padding="5dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/close" /&gt;
+
+&lt;/RelativeLayout&gt;
+  </code>
+</pre>
+
+<h5>
+  In this java file we show the details of the movie and we close this activity by clicking on the button close.we use finish() method to get back the MainActivity .<br><br>
+  <code>MovieDetailsActivity.java</code>
+</h5>
+<pre id="code">
+  <code class="lang-js">
+
+    package com.example.coursel;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
+public class MovieDetailsActivity extends AppCompatActivity {
+
+    private ImageView imageView;
+    private ImageButton button;
+    private static final String DRAWABLE_RESOURE = "resource";
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_movie_details);
+
+        imageView = (ImageView)findViewById(R.id.img);
+        button = (ImageButton)findViewById(R.id.btnClose);
+
+        int drawbleResource = getIntent().getIntExtra(DRAWABLE_RESOURE, 0);
+        imageView.setImageResource(drawbleResource);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+}
+  </code>
+</pre>
+              <h5>
+                You can access files here : <a href="https://drive.google.com/file/d/1qX2TULefRI_XQQ4owIZOnQuHP6IdJ2WG/view?usp=sharing">Get them now</a>
+              </h5>
+            </div>
+          </div>
+      </section>
+
+    </div>
+    <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white">
+    <div class="container">
+      Copyright &copy; Coding madness 2019
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/grayscale.min.js"></script>
+
+  <script src="../js/prism.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple light ON and OFF using jQuery</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/projects.css" rel="stylesheet">
+
+  <link href="../css/prism.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="bg-black">
+    <nav class="bg-black navbar navbar-expand-lg navbar-light" id="mainNav">
+      <a class="js-scroll-trigger" href="../index.html"><img src="../img/logo.png" style="height: 150px; margin-bottom: -20px; margin-top: -20px;"></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#about">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#projects1">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../list_web.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="../index.html#signup">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container whole">
+      <h3>Light ON and OF using a simple web page</h3>
+      <br>
+      <header>
+        <iframe src="https://www.youtube.com/embed/GZUGUHV0528" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </header>
+
+      <section class="my-5">
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is simple project describes the use of the CSS and jQuery by an simple project here we use the CSS <code>filter : grayscale</code> to turn off the light following video is useful to undestand hoe to works</h5>
+              <h5><br>Following work is divided and implemented in few steps<br><br>-> Basic html page with buttons to ON and OFF and light image</h5>
+              <pre id="code">
+                <code class="lang-html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button &gt;turn off the light&lt;/button&gt;
+    &lt;button &gt;turn on the light&lt;/button&gt;
+    &lt;div &gt;
+      &lt;img src="new.png"&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </code>
+              </pre>
+              <h5><br>-> Add some CSS to buttons turn OFF the light (<small> Here we are using class names to apply Style </small>)</h5>
+              <pre id="code">
+                <code class="lang-html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;style type="text/css"&gt;
+    body{
+      background: url(background.jpg);
+    }
+    .grayscale{
+      -webkit-filter: grayscale( 100% );
+    }
+    .right{
+      float: right;
+      
+    }
+    button{
+      font-size: 20px;
+      background-color: black;
+      color: white;
+    }
+  &lt;/style&gt;
+  &lt;body&gt;
+    &lt;button class="off"&gt;turn off the light&lt;/button&gt;
+    &lt;button class="right"&gt;turn on the light&lt;/button&gt;
+    &lt;div class="light grayscale"&gt;
+      &lt;img src="new.png"&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+              </pre>
+              <h5><br>-> Now we add jQuery to ON and OFF the light (<small> add or remove the <u>grayscale class</u> </small>)</h5>
+              <h6><strong><a href="https://jquery.com" style="color: violet">https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js </a> is the jQuery cdn link you can download the jQuery from the original site or use this link but <i> <i>you need to connect to internet to use this link ( otherwise jQuery wont work ) </i></i></strong></h6>
+              <pre id="code">
+                <code class="lang-html">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    //using jquery makes the work easy compared to javascript
+    //code to remove and add the grayscale class
+    $('.right').click(function(){
+      $('div').removeClass('grayscale');
+    });
+    $('.off').click(function(){
+      $('div').addClass('grayscale');
+    });
+  &lt;/script&gt;
+                </code>
+              </pre>
+              <h5><br>The whole code assembled </h5>
+              <pre style="height: 600px; " id="code">
+                <code class="lang-html">
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;style type="text/css"&gt;
+    body{
+      background: url(background.jpg);
+    }
+    .grayscale{
+      -webkit-filter: grayscale( 100% );
+    }
+    .right{
+      float: right;
+      
+    }
+    button{
+      font-size: 20px;
+      background-color: black;
+      color: white;
+    }
+  &lt;/style&gt;
+  &lt;body&gt;
+    &lt;button class="off"&gt;turn off the light&lt;/button&gt;
+    &lt;button class="right"&gt;turn on the light&lt;/button&gt;
+    &lt;div class="light grayscale"&gt;
+      &lt;img src="new.png"&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    //to write the code to remove and add the grayscale class
+    $('.right').click(function(){
+      $('div').removeClass('grayscale');//using jquery makes the work easy compared to javascript
+    });
+    $('.off').click(function(){
+      $('div').addClass('grayscale');//using jquery makes the work easy compared to javascript
+    });
+  &lt;/script&gt;
+&lt;/html&gt;
+                </code>
+              </pre>
+              <h5 class="mb-10">
+                You can access files here : <a href="https://drive.google.com/file/d/1cGqZkxhvAWd3No-pRUo2nRrHS5VA7PSk/view?usp=sharing">Get them now</a>
+              </h5>
+            </div>
+          </div>
+      </section>
+
+    </div>
+    <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white">
+    <div class="container">
+      Copyright &copy; Coding madness 2019
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/grayscale.min.js"></script>
+
+  <script src="../js/prism.js"></script>
+
+</body>
+
+</html>
