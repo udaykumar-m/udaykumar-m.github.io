@@ -1,0 +1,194 @@
+*,
+:after,
+:before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    height: 100%;
+    font-size: 100%;
+}
+
+body {
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    font-family: Variable-Roman, Arial, san-serif !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    text-rendering: optimizeLegibility !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+::-moz-selection {
+    color: red;
+}
+::selection {
+    background-color: blue;
+    color: red;
+}
+::-moz-selection {
+    background-color: blue;
+    color: red;
+}
+
+.navbar-brand{
+    z-index: 1;
+    font-family: Helvetica, sans-serif;
+    font-weight: 900;
+}
+.navbar-brand>span{
+    color: antiquewhite;
+}
+
+#wrapper-home{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    min-height: 90vh;
+    background: #161623;
+}
+#wrapper-home:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100vw;
+    height: 95vh;
+    background: linear-gradient(#f00,#f0f);
+    clip-path: circle(30% at right 70%);
+}
+#wrapper-home:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100vw;
+    height: 95vh;
+    background: linear-gradient(#2196f3,#e91e63);
+    clip-path: circle(20% at 10% 10%) ;
+}
+
+.image-uploader{
+    z-index: 1;
+    color:white;
+    width: 100vw;
+    height: 95vh;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+}
+.mainText{
+    font-family: 'Courier New', monospace;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1.1;
+}
+.tagLine{
+    padding-left: 0;
+    font-family: 'Brush Script MT', cursive;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+code{
+    font-family: 'Times New Roman', serif
+}
+#lottie{
+    width:100%;
+    min-height: 40vh;
+    display:block;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    text-align: center;
+    opacity: 1;
+}
+.caption{
+    max-width: 100%;
+    padding: 0 1rem 1rem;
+}
+.image-upload{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.import{
+    font-size: 18px;
+    color: #1fe8b6;
+    border: 3px dotted #1fe8b6;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+.import p{
+    margin: 0;
+}
+.import::before,
+.import::after{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px dashed #1fe8b6;
+    transition: all .5s;
+}
+.import::before{
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+.import::after{
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+.import:hover::before,
+.import:hover::after{
+    width: calc(100% + 27px);
+    height: calc(100% + 27px);
+}
+
+.image-upload>input {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .image-uploader {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+    .mainText {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .tagLine {
+        font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
+    .import {
+        padding: 1.25rem 0.75rem;
+    }
+    #lottie {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .image-uploader {
+        padding: 1.75rem;
+    }
+}
