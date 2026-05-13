@@ -166,10 +166,7 @@
                                             <!-- Portfolio V1 -->
                                             <div class="quest-card">
                                                 <div class="quest-image-block">
-                                                    <div class="quest-placeholder-image">
-                                                        <i class="fa fa-image"></i>
-                                                        <span>IMAGE<br>PLACEHOLDER</span>
-                                                    </div>
+                                                    <img src="img/portfolioV1.png" alt="Portfolio V1" class="quest-img-preview" tabindex="0" onclick="openImagePreview(this.src)" onkeydown="if(event.code === 'Space') { event.preventDefault(); openImagePreview(this.src); }">
                                                 </div>
                                                 <div class="quest-content">
                                                     <div class="quest-header">
@@ -179,7 +176,6 @@
                                                     <div class="quest-desc">
                                                         <ul>
                                                             <li>Designed and developed a personal portfolio website showcasing projects, technical skills, and professional experience with smooth navigation, modern UI elements, and responsive design principles.</li>
-                                                            <li>Implemented interactive sections for project highlights, contact information, and developer branding, creating a visually engaging platform to present full-stack, Flutter, and automation testing expertise.</li>
                                                         </ul>
                                                     </div>
                                                     <div class="quest-skills">
@@ -248,10 +244,7 @@
                                             <!-- Image Compressor -->
                                             <div class="quest-card">
                                                 <div class="quest-image-block">
-                                                    <div class="quest-placeholder-image">
-                                                        <i class="fa fa-image"></i>
-                                                        <span>IMAGE<br>PLACEHOLDER</span>
-                                                    </div>
+                                                    <img src="img/image-compressor.png" alt="Image Compressor" class="quest-img-preview" tabindex="0" onclick="openImagePreview(this.src)" onkeydown="if(event.code === 'Space') { event.preventDefault(); openImagePreview(this.src); }">
                                                 </div>
                                                 <div class="quest-content">
                                                     <div class="quest-header">
@@ -302,10 +295,7 @@
                                             <!-- Coding Madness -->
                                             <div class="quest-card">
                                                 <div class="quest-image-block">
-                                                    <div class="quest-placeholder-image">
-                                                        <i class="fa fa-image"></i>
-                                                        <span>IMAGE<br>PLACEHOLDER</span>
-                                                    </div>
+                                                    <img src="img/codingMadness.png" alt="Coding Madness" class="quest-img-preview" tabindex="0" onclick="openImagePreview(this.src)" onkeydown="if(event.code === 'Space') { event.preventDefault(); openImagePreview(this.src); }">
                                                 </div>
                                                 <div class="quest-content">
                                                     <div class="quest-header">
@@ -532,7 +522,39 @@
                     </div>
                 </div>
 
+                <div id="imageModal" class="image-modal" onclick="closeImagePreview()">
+                    <img id="modalImage" src="" alt="Preview">
+                </div>
+
                 <script>
+                    function openImagePreview(src) {
+                        const modal = document.getElementById('imageModal');
+                        const modalImg = document.getElementById('modalImage');
+                        modalImg.src = src;
+                        modal.style.display = 'flex';
+                        // Trigger reflow
+                        void modal.offsetWidth;
+                        modal.classList.add('show');
+                    }
+                    
+                    function closeImagePreview() {
+                        const modal = document.getElementById('imageModal');
+                        modal.classList.remove('show');
+                        setTimeout(() => {
+                            if (!modal.classList.contains('show')) {
+                                modal.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                    
+                    document.addEventListener('keydown', function(event) {
+                        const modal = document.getElementById('imageModal');
+                        if (modal.classList.contains('show') && (event.key === "Escape" || event.code === "Space")) {
+                            event.preventDefault();
+                            closeImagePreview();
+                        }
+                    });
+
                     function showSection(sectionId, element) {
                         document.querySelectorAll('.info-content section').forEach(sec => sec.style.display = 'none');
                         document.getElementById(sectionId).style.display = 'block';
