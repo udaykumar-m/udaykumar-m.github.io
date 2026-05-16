@@ -16,7 +16,7 @@ Interactive portfolio showcasing 5+ years of full-stack development experience. 
 - **Full-Stack Development** - MERN Stack (React, Node.js, MongoDB, Express)
 - **Mobile Development** - Flutter for cross-platform apps
 - **DevOps & Infrastructure** - Cloud deployment and optimization
-- **Web Design** - Modern UI/UX with animations and glassmorphism
+- **Web Design** - Modern UI/UX with animations
 
 ## Tech Stack
 
