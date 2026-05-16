@@ -28,7 +28,7 @@ Interactive portfolio showcasing 5+ years of full-stack development experience. 
 
 ## View Full Portfolio
 
-🌐 **Live Site**: https://uday-kumar.com
+🌐 **Live Site**: https://uday-kumar-m.com  
 📄 **Resume**: Available on portfolio  
 💼 **LinkedIn**: https://www.linkedin.com/in/udaykumar-m/
 
