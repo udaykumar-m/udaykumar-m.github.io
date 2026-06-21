@@ -556,7 +556,12 @@
                     });
 
                     function updateSectionFromHash() {
-                        const id = (location.hash || '#about').slice(1) || 'about';
+                        let id = (location.hash || '#about').slice(1) || 'about';
+                        // If the section doesn't exist, fallback to 'about'
+                        if (!document.getElementById(id) || !document.querySelector('.info-content #' + id)) {
+                            id = 'about';
+                            if (location.hash !== '#about') history.replaceState(null, '', '#about');
+                        }
                         document.querySelectorAll('.info-content section').forEach(s => s.style.display = s.id === id ? 'block' : 'none');
                         document.querySelectorAll('.folder-tabs .tab').forEach(t => t.classList.toggle('active-nav', (t.getAttribute('href') === '#' + id) || (t.dataset.section === id)));
                     }
