@@ -54,19 +54,19 @@
                     <div class="info-layout-wrapper">
                         <div class="folder-tabs-wrapper">
                             <div class="folder-tabs">
-                                <a href="#" onclick="showSection('about', this); return false;" class="tab active-nav" title="About Me">
+                                <a href="#about" data-section="about" class="tab active-nav" title="About Me">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span class="tab-name">About Me</span>
                                 </a>
-                                <a href="#" onclick="showSection('skills', this); return false;" class="tab" title="Skills">
+                                <a href="#skills-projects" data-section="skills-projects" class="tab" title="Skills & Projects">
                                     <i class="fa fa-code" aria-hidden="true"></i>
                                     <span class="tab-name">Skills & Projects</span>
                                 </a>
-                                <a href="#" onclick="showSection('projects', this); return false;" class="tab" title="Projects">
+                                <a href="#experience" data-section="experience" class="tab" title="Experience">
                                     <i class="fa fa-briefcase" aria-hidden="true"></i>
                                     <span class="tab-name">Experience</span>
                                 </a>
-                                <a href="#" onclick="showSection('contact', this); return false;" class="tab" title="Contact">
+                                <a href="#contact" data-section="contact" class="tab" title="Contact">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <span class="tab-name">Contact</span>
                                 </a>
@@ -115,7 +115,7 @@
                                     </div>
                                 </section>
                                 
-                                <section id="skills" style="display:none;">
+                                <section id="skills-projects" style="display:none;">
                                     <div class="section-block cyber-block">
                                         <h3 class="section-title glitch" data-text="TECH ARSENAL">TECH ARSENAL</h3>
                                         <p class="cyber-subtitle" style="margin-bottom: 20px;">EQUIPPED ABILITIES & LOADOUT</p>
@@ -345,7 +345,7 @@
                                     </div>
                                 </section>
                                 
-                                <section id="projects" style="display:none;">
+                                <section id="experience" style="display:none;">
                                     <div class="section-block cyber-block">
                                         <h3 class="section-title glitch" data-text="CAREER QUEST">CAREER QUEST</h3>
                                         <p class="cyber-subtitle" style="margin-bottom: 20px;">Mission History Unlocked</p>
@@ -555,13 +555,13 @@
                         }
                     });
 
-                    function showSection(sectionId, element) {
-                        document.querySelectorAll('.info-content section').forEach(sec => sec.style.display = 'none');
-                        document.getElementById(sectionId).style.display = 'block';
-                        
-                        document.querySelectorAll('.folder-tabs .tab').forEach(nav => nav.classList.remove('active-nav'));
-                        element.classList.add('active-nav');
+                    function updateSectionFromHash() {
+                        const id = (location.hash || '#about').slice(1) || 'about';
+                        document.querySelectorAll('.info-content section').forEach(s => s.style.display = s.id === id ? 'block' : 'none');
+                        document.querySelectorAll('.folder-tabs .tab').forEach(t => t.classList.toggle('active-nav', (t.getAttribute('href') === '#' + id) || (t.dataset.section === id)));
                     }
+                    window.addEventListener('hashchange', updateSectionFromHash);
+                    document.addEventListener('DOMContentLoaded', updateSectionFromHash);
                 </script>
             </div>
         </div>
