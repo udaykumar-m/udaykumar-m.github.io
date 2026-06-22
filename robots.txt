@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block internal-only paths
+Disallow: /old-projects/coding-madness/android/
+
+Sitemap: https://uday-kumar.com/sitemap.xml
