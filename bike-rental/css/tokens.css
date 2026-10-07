@@ -1,0 +1,79 @@
+/* Kinetix design tokens — one accent (Light Sea Green), everything else neutral */
+:root {
+  --accent: #20B2AA;
+  --accent-hover: #178F89;
+  --accent-tint: #E6F6F5;
+  --accent-tint-2: #DBF3F1; /* one step deeper, for tint-on-tint (hero carousel disc) */
+  --accent-ink: #0E5F5B;
+  --accent-text: var(--accent-ink); /* accent used as text: dark enough for AA on light */
+  --bg: #FAFBFB;
+  --surface: #FFFFFF;
+  --surface-2: #F3F5F5;
+  --text: #1F2933;
+  --muted: #626A75; /* spec says #6B7280; darkened so it passes AA on --surface-2 */
+  --border: #E5E7EB;
+  --rule: rgba(31, 41, 51, .12); /* section-head rule lines; reads on bg and bands */
+  --ink: #0F1517;
+  --on-ink: #F5F7F7;
+  --on-ink-muted: rgba(245, 247, 247, .68);
+
+  --shadow-sm: 0 1px 2px rgba(15, 21, 23, .06);
+  --shadow: 0 8px 24px rgba(15, 21, 23, .08);
+  --shadow-lg: 0 16px 40px rgba(15, 21, 23, .10);
+  --focus-ring: 0 0 0 3px var(--accent-tint);
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 140px;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-ui: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-h1: clamp(40px, 6vw, 72px);
+  --fs-h2: clamp(28px, 3.4vw, 40px);
+  --fs-h3: 22px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-tiny: 12px;
+  --lh-body: 1.6;
+
+  --container: 1200px;
+  --gutter: clamp(16px, 11.8vw - 30px, 140px); /* 16px at 390, 140px at 1440 */
+  --nav-h: 88px;
+  --control-h: 48px;
+  --btn-h: 44px;
+  --section-y: clamp(32px, 4vw, 48px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --t-fast: 160ms;
+  --t-reveal: 400ms;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --accent: #2EC4BB;
+  --accent-hover: #20B2AA;
+  --accent-tint: rgba(32, 178, 170, .14);
+  --accent-tint-2: rgba(32, 178, 170, .14);
+  --accent-ink: #9FE3DE;
+  --accent-text: var(--accent);
+  --bg: #0F1517;
+  --surface: #161D20;
+  --surface-2: #131A1D;
+  --text: #E6EBEC;
+  --muted: #9AA5A8;
+  --border: #263033;
+  --rule: rgba(230, 235, 236, .12);
+  --ink: #060A0B;
+  --on-ink: #F5F7F7;
+  --on-ink-muted: rgba(245, 247, 247, .62);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .35);
+  --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, .45);
+
+  color-scheme: dark;
+}

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a ride — Kinetix</title>
+<meta name="description" content="Electric bike taxi in Bhimavaram. Fixed fare before you confirm, pay after the ride.">
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/ride.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="section ride-page">
+    <div class="container">
+      <div class="section-head section-head--left ride-head reveal">
+        <span class="eyebrow">EV bike taxi · Bhimavaram</span>
+        <h1 class="section-head__title">Book a ride</h1>
+        <p class="section-head__sub lead">Tell us where you are and where you're going. The fare is fixed before you confirm, and you pay after the ride.</p>
+      </div>
+
+      <div class="ride-layout">
+        <form class="search-card search-card--stack search-card--compact ride-form reveal" id="ride-form" novalidate aria-label="Request a ride">
+          <div class="field" data-field="when">
+            <span class="label" id="when-label">When</span>
+            <div class="segmented segmented--block" role="group" aria-labelledby="when-label">
+              <button type="button" class="segmented__btn" data-when="now" aria-pressed="true"><i data-lucide="zap"></i>Now</button>
+              <button type="button" class="segmented__btn" data-when="later" aria-pressed="false"><i data-lucide="calendar-clock"></i>Schedule later</button>
+            </div>
+            <p class="field__error" id="r-when-error"></p>
+          </div>
+          <div class="field" data-field="at" id="field-at" hidden>
+            <label class="label" for="r-at">Pickup date &amp; time</label>
+            <input class="input" id="r-at" name="at" type="datetime-local" step="900" aria-describedby="r-at-error">
+            <p class="field__hint">Rides run 5:30 am to 11:30 pm, up to 7 days ahead.</p>
+            <p class="field__error" id="r-at-error"></p>
+          </div>
+
+          <div class="ride-form__route">
+            <div class="field" data-field="pickup">
+              <label class="label" for="r-pickup">Pickup</label>
+              <div class="input-wrap"><i data-lucide="map-pin"></i><input class="input" id="r-pickup" name="pickup" type="text" data-places placeholder="Bhimavaram Junction, Undi…" autocomplete="off" aria-describedby="r-pickup-error"></div>
+              <p class="field__error" id="r-pickup-error"></p>
+            </div>
+            <button type="button" class="btn-icon ride-form__swap" id="r-swap" aria-label="Swap pickup and drop"><i data-lucide="arrow-up-down"></i></button>
+            <div class="field" data-field="drop">
+              <label class="label" for="r-drop">Drop</label>
+              <div class="input-wrap"><i data-lucide="flag"></i><input class="input" id="r-drop" name="drop" type="text" data-places placeholder="SRKR College, Gunupudi…" autocomplete="off" aria-describedby="r-drop-error"></div>
+              <p class="field__error" id="r-drop-error"></p>
+            </div>
+          </div>
+
+          <p class="small muted ride-as" id="ride-as" hidden>Riding as <strong id="ride-as-name"></strong> · <button type="button" class="link link--inline" id="ride-for-other">Ride for someone else?</button></p>
+          <div class="ride-form__other" id="ride-other" hidden>
+            <div class="row row--between"><span class="label">Who is riding</span><button type="button" class="link link--inline small" id="ride-for-me">It's me</button></div>
+            <div class="ride-form__you">
+              <div class="field" data-field="oname">
+                <label class="label" for="r-oname">Rider's name</label>
+                <div class="input-wrap"><i data-lucide="user"></i><input class="input" id="r-oname" name="oname" type="text" placeholder="Full name" aria-describedby="r-oname-error"></div>
+                <p class="field__error" id="r-oname-error"></p>
+              </div>
+              <div class="field" data-field="ophone">
+                <label class="label" for="r-ophone">Rider's mobile</label>
+                <div class="input-wrap"><i data-lucide="phone"></i><input class="input" id="r-ophone" name="ophone" type="tel" inputmode="tel" placeholder="98xxx xxxxx" aria-describedby="r-ophone-error"></div>
+                <p class="field__error" id="r-ophone-error"></p>
+              </div>
+            </div>
+            <p class="tiny muted">We'll text the captain's details and the OTP to this number. You stay the booker.</p>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" id="r-submit">Request ride <i data-lucide="arrow-right"></i></button>
+          <p class="tiny muted text-center">No payment now. Cancel free until the captain arrives. Ride updates come by SMS.</p>
+        </form>
+
+        <aside class="ride-side reveal reveal--delay-1">
+          <div class="card card--pad fare-card" id="fare-card" aria-live="polite">
+            <div class="fare-card__head">
+              <div>
+                <h2 class="fare-card__title">Your fare</h2>
+                <p class="small muted">Fixed before you confirm. No surge.</p>
+              </div>
+              <span class="chip chip--accent"><i data-lucide="zap"></i>EV bike</span>
+            </div>
+
+            <p class="fare-card__empty" id="fare-empty"><i data-lucide="route"></i>Enter a pickup and a drop to see the fare.</p>
+
+            <div class="fare-card__body" id="fare-body" hidden>
+              <div class="fare-card__total"><strong id="fare-total">₹0</strong><span class="muted" id="fare-route"></span></div>
+              <div class="row fare-card__chips">
+                <span class="chip"><i data-lucide="route"></i><span id="fare-km"></span></span>
+                <span class="chip"><i data-lucide="timer"></i><span id="fare-min"></span></span>
+                <span class="chip"><i data-lucide="hard-hat"></i>Helmet included</span>
+              </div>
+              <div class="price-summary">
+                <div class="price-summary__row"><span>Base fare</span><span id="fare-base"></span></div>
+                <div class="price-summary__row"><span id="fare-dist-label">Distance</span><span id="fare-dist"></span></div>
+                <div class="price-summary__row price-summary__row--total"><span>Total</span><span id="fare-sum"></span></div>
+                <p class="price-summary__note">Pay by UPI or cash when the ride ends. Waiting beyond 5 minutes adds ₹1 a minute.</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="ride-perks">
+            <li><i data-lucide="badge-check"></i><span><strong>Verified captain</strong>Name, photo and plate shown before you board.</span></li>
+            <li><i data-lucide="key-round"></i><span><strong>OTP to start</strong>The ride begins only when you share the code.</span></li>
+            <li><i data-lucide="share-2"></i><span><strong>Share your ride</strong>Send live status to family with one link.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- After "Request ride": captains are matched for ~20 s, then the tracking page opens. Stays up until cancelled or matched. -->
+<dialog class="modal" id="search-modal" aria-labelledby="sm-title">
+  <div class="modal__card modal__card--compact" tabindex="-1">
+    <div id="sm-searching">
+      <div class="modal__head"><span class="modal__icon modal__icon--sm is-pulsing"><i data-lucide="radar"></i></span><h2 class="modal__title" id="sm-title">Finding your captain</h2></div>
+      <p class="small muted sm-route" id="sm-route"></p>
+      <div class="progress" id="sm-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="sm-title"><span class="progress__fill"></span></div>
+      <p class="small search-status" id="sm-status" aria-live="polite"></p>
+      <button type="button" class="btn btn--outline btn--block" id="sm-cancel">Cancel request</button>
+      <p class="text-center sm-dev"><button type="button" class="dev-tag" id="sm-dev" title="Development only: simulate no captains nearby">dev · no captains</button></p>
+    </div>
+    <div id="sm-failed" hidden>
+      <button type="button" class="btn-icon modal__close" id="sm-close" aria-label="Close"><i data-lucide="x"></i></button>
+      <div class="modal__head"><span class="modal__icon modal__icon--sm"><i data-lucide="search-x"></i></span><h2 class="modal__title">No captains found nearby</h2></div>
+      <p class="small muted" id="sm-failed-text">All captains near your pickup are on rides right now. Please try again in a few minutes. Nothing has been charged.</p>
+      <div class="modal__actions"><button type="button" class="btn btn--outline btn--lg" id="sm-dismiss">Close</button><button type="button" class="btn btn--primary btn--lg" id="sm-retry"><i data-lucide="rotate-ccw"></i>Try again</button></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Dismissable confirmation: tap outside, the X, Escape or the phone's back button keeps the request going -->
+<dialog class="modal" id="cancel-modal" aria-labelledby="cm-title">
+  <div class="modal__card modal__card--compact" tabindex="-1">
+    <button type="button" class="btn-icon modal__close" data-close aria-label="Close"><i data-lucide="x"></i></button>
+    <div class="modal__head"><span class="modal__icon modal__icon--sm"><i data-lucide="circle-x"></i></span><h2 class="modal__title" id="cm-title">Cancel this request?</h2></div>
+    <p class="small muted">Are you sure you want to cancel? No captain has been assigned yet, so there is no charge.</p>
+    <button type="button" class="btn btn--primary btn--lg btn--block" id="cm-confirm">Cancel ride</button>
+  </div>
+</dialog>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/picker.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/pages/ride.js"></script>
+</body>
+</html>

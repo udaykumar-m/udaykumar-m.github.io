@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Captain — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/captain.css">
+</head>
+<body>
+<header id="captain-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Not logged in as a captain -->
+  <section class="section cap-gate" id="cap-gate" hidden>
+    <div class="container">
+      <div class="cap-gate__card card card--pad reveal">
+        <span class="cap-gate__icon"><i data-lucide="bike"></i></span>
+        <span class="eyebrow">Kinetix captain</span>
+        <h1>Captain login</h1>
+        <p class="lead">Log in with your captain mobile to go online and take rides.</p>
+        <button type="button" class="btn btn--primary btn--lg" id="gate-login">Log in with mobile <i data-lucide="arrow-right"></i></button>
+        <p class="tiny muted">Demo captain numbers: 90000 00001 to 90000 00004.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section class="section cap-home" id="cap-home" hidden>
+    <div class="container">
+      <div class="cap-home__head reveal">
+        <div>
+          <span class="eyebrow" id="cap-greet">Good morning</span>
+          <h1 class="cap-home__title" id="cap-name"></h1>
+        </div>
+        <span class="status-pill" id="status-pill"><span class="status-pill__dot"></span><span id="status-pill-text">Offline</span></span>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-main">
+          <!-- Online / offline -->
+          <section class="card card--pad status-card reveal" id="status-card" aria-live="polite">
+            <div class="status-card__row">
+              <div>
+                <h2 class="status-card__title" id="status-title">You're offline</h2>
+                <p class="small muted" id="status-text">Go online to start receiving ride requests.</p>
+              </div>
+              <label class="switch switch--lg" id="status-switch"><input type="checkbox" id="status-toggle"><span class="switch__track"></span><span class="sr-only">Online</span></label>
+            </div>
+            <div class="stats">
+              <div class="stat"><span class="stat__label">Today</span><strong class="stat__value" id="st-earn">₹0</strong></div>
+              <div class="stat"><span class="stat__label">Rides</span><strong class="stat__value" id="st-rides">0</strong></div>
+              <div class="stat"><span class="stat__label">Hours online</span><strong class="stat__value" id="st-hours">0</strong></div>
+              <div class="stat"><span class="stat__label">Rating</span><strong class="stat__value" id="st-rating">5.0 ★</strong></div>
+            </div>
+          </section>
+
+          <!-- Waiting / simulate -->
+          <section class="card card--pad wait-card reveal" id="wait-card" hidden>
+            <span class="modal__icon modal__icon--sm is-pulsing"><i data-lucide="radar"></i></span>
+            <div>
+              <h2 class="wait-card__title">Waiting for requests</h2>
+              <p class="small muted">Requests near you appear here with a 20-second window to accept.</p>
+            </div>
+            <button type="button" class="btn btn--outline btn--sm" id="simulate"><i data-lucide="bell-ring"></i>Simulate a ride request <span class="dev-tag">dev</span></button>
+          </section>
+
+          <!-- Incoming request -->
+          <section class="card card--pad request-card reveal" id="request-card" hidden aria-labelledby="req-title">
+            <div class="request-card__head">
+              <h2 class="request-card__title" id="req-title"><i data-lucide="bell-ring"></i>New ride request</h2>
+              <span class="chip chip--accent" id="req-timer">20 s</span>
+            </div>
+            <div class="progress request-card__bar"><span class="progress__fill" id="req-fill"></span></div>
+            <div class="route">
+              <div class="route__stop"><i data-lucide="map-pin"></i><div><span class="route__label">Pickup · <span id="req-topickup"></span> away</span><strong id="req-pickup"></strong></div></div>
+              <div class="route__stop"><i data-lucide="flag"></i><div><span class="route__label">Drop · <span id="req-km"></span></span><strong id="req-drop"></strong></div></div>
+            </div>
+            <div class="request-card__meta">
+              <span><i data-lucide="user"></i><span id="req-rider"></span></span>
+              <span><i data-lucide="timer"></i>about <span id="req-min"></span> min</span>
+            </div>
+            <div class="request-card__fare"><div><span class="stat__label">Fare</span><strong id="req-fare"></strong></div><div><span class="stat__label">You earn</span><strong class="accent" id="req-share"></strong></div></div>
+            <div class="modal__actions"><button type="button" class="btn btn--outline btn--lg" id="req-decline">Decline</button><button type="button" class="btn btn--primary btn--lg" id="req-accept"><i data-lucide="check"></i>Accept</button></div>
+          </section>
+
+          <!-- Ride in hand -->
+          <section class="card card--pad ride-card reveal" id="ride-card" hidden aria-labelledby="ride-title">
+            <ol class="cap-steps" id="cap-steps">
+              <li data-stage="accepted"><span>1</span>To pickup</li>
+              <li data-stage="arrived"><span>2</span>OTP</li>
+              <li data-stage="started"><span>3</span>Riding</li>
+              <li data-stage="ended"><span>4</span>Payment</li>
+            </ol>
+            <h2 class="ride-card__title" id="ride-title"></h2>
+            <p class="small muted" id="ride-text"></p>
+            <div class="rider-row">
+              <span class="avatar"><i data-lucide="user"></i></span>
+              <div><strong id="ride-rider"></strong><div class="small muted" id="ride-phone"></div></div>
+              <a class="btn-icon" id="ride-call" href="#" aria-label="Call rider"><i data-lucide="phone"></i></a>
+            </div>
+            <div class="route">
+              <div class="route__stop"><i data-lucide="map-pin"></i><div><span class="route__label">Pickup</span><strong id="ride-pickup"></strong></div></div>
+              <div class="route__stop"><i data-lucide="flag"></i><div><span class="route__label">Drop · <span id="ride-km"></span></span><strong id="ride-drop"></strong></div></div>
+            </div>
+
+            <div class="ride-action" id="act-accepted" hidden>
+              <button type="button" class="btn btn--primary btn--lg btn--block" id="btn-arrived"><i data-lucide="map-pin-check"></i>I've arrived at pickup</button>
+            </div>
+            <div class="ride-action" id="act-arrived" hidden>
+              <div class="field" data-field="otp">
+                <label class="label" for="ride-otp">Rider's 4-digit code</label>
+                <input class="input otp-input" id="ride-otp" type="text" inputmode="numeric" maxlength="4" placeholder="····" autocomplete="one-time-code">
+                <p class="field__hint" id="otp-hint"></p>
+                <p class="field__error" id="otp-error"></p>
+              </div>
+              <button type="button" class="btn btn--primary btn--lg btn--block" id="btn-start"><i data-lucide="play"></i>Start ride</button>
+            </div>
+            <div class="ride-action" id="act-started" hidden>
+              <p class="notice"><i data-lucide="navigation"></i><span id="started-text"></span></p>
+              <p class="small muted loc-line"><i data-lucide="locate-fixed"></i><span id="loc-start"></span></p>
+              <button type="button" class="btn btn--primary btn--lg btn--block" id="btn-end"><i data-lucide="flag"></i>End ride</button>
+              <p class="text-center"><button type="button" class="dev-tag" id="dev-wrongloc" title="Development only: end the ride away from the drop">dev · wrong location</button></p>
+            </div>
+            <div class="ride-action" id="act-ended" hidden>
+              <p class="small muted loc-line"><i data-lucide="locate-fixed"></i><span id="loc-end"></span></p>
+              <p class="ride-card__collect">Collect <strong id="collect-amount"></strong> from the rider</p>
+              <div class="modal__actions"><button type="button" class="btn btn--outline btn--lg" id="btn-cash"><i data-lucide="banknote"></i>Cash</button><button type="button" class="btn btn--primary btn--lg" id="btn-upi"><i data-lucide="smartphone"></i>UPI</button></div>
+            </div>
+            <div class="ride-action" id="act-paid" hidden>
+              <p class="small">Paid by <strong id="paid-by"></strong>. How was the rider?</p>
+              <div class="stars" id="stars" role="radiogroup" aria-label="Rate the rider">
+                <button type="button" role="radio" aria-checked="false" data-star="1" aria-label="1 star"><i data-lucide="star"></i></button>
+                <button type="button" role="radio" aria-checked="false" data-star="2" aria-label="2 stars"><i data-lucide="star"></i></button>
+                <button type="button" role="radio" aria-checked="false" data-star="3" aria-label="3 stars"><i data-lucide="star"></i></button>
+                <button type="button" role="radio" aria-checked="false" data-star="4" aria-label="4 stars"><i data-lucide="star"></i></button>
+                <button type="button" role="radio" aria-checked="false" data-star="5" aria-label="5 stars"><i data-lucide="star"></i></button>
+              </div>
+              <button type="button" class="btn btn--primary btn--lg btn--block" id="btn-done"><i data-lucide="check"></i>Done</button>
+            </div>
+            <p class="text-center ride-card__cancel" id="ride-cancel-wrap"><button type="button" class="link link--inline small" id="btn-ride-cancel">Cancel this ride</button></p>
+          </section>
+
+          <p class="notice notice--toast" id="toast" hidden><i data-lucide="circle-check"></i><span id="toast-text"></span></p>
+        </div>
+
+        <aside class="cap-side">
+          <section class="card card--pad reveal reveal--delay-1" aria-labelledby="today-title">
+            <div class="row row--between"><h2 class="cap-side__title" id="today-title">Today's rides</h2><a class="link small" href="captain-rides.html">All rides <i data-lucide="arrow-right"></i></a></div>
+            <ul class="ride-list" id="today-list"></ul>
+          </section>
+          <section class="card card--pad reveal reveal--delay-2 cap-tips">
+            <h2 class="cap-side__title">Reminders</h2>
+            <ul class="check-list small">
+              <li><i data-lucide="hard-hat"></i>Carry a clean helmet for the rider.</li>
+              <li><i data-lucide="key-round"></i>Start the ride only after the rider's code.</li>
+              <li><i data-lucide="share-2"></i>Keep the rider's drop as entered; detours are not paid.</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- End ride away from the drop: the ride ends only where the rider asked to go -->
+<dialog class="modal" id="loc-modal" aria-labelledby="lm-title">
+  <div class="modal__card modal__card--compact" tabindex="-1">
+    <button type="button" class="btn-icon modal__close" data-close aria-label="Close"><i data-lucide="x"></i></button>
+    <div class="modal__head"><span class="modal__icon modal__icon--sm"><i data-lucide="map-pin-off"></i></span><h2 class="modal__title" id="lm-title">You're not at the drop yet</h2></div>
+    <p class="small muted" id="lm-text"></p>
+    <p class="small muted">We check the location at the start and the end of every ride. Head to the drop and tap End ride again.</p>
+    <div class="modal__actions"><button type="button" class="btn btn--outline btn--lg" id="lm-early">Rider asked to stop here</button><button type="button" class="btn btn--primary btn--lg" data-close>Heading to the drop</button></div>
+  </div>
+</dialog>
+
+<!-- Cancel confirmation (dismissable) -->
+<dialog class="modal" id="cancel-modal" aria-labelledby="cm-title">
+  <div class="modal__card modal__card--compact" tabindex="-1">
+    <button type="button" class="btn-icon modal__close" data-close aria-label="Close"><i data-lucide="x"></i></button>
+    <div class="modal__head"><span class="modal__icon modal__icon--sm"><i data-lucide="circle-x"></i></span><h2 class="modal__title" id="cm-title">Cancel this ride?</h2></div>
+    <p class="small muted">The rider will be told and matched with another captain. Frequent cancellations lower your rating.</p>
+    <div class="reason-list" id="cm-reasons" role="radiogroup" aria-label="Select the reason">
+      <p class="label">Select the reason</p>
+      <label class="reason"><input type="radio" name="cm-reason" value="Rider is not responding"><span>Rider is not responding</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Rider is not at the pickup"><span>Rider is not at the pickup</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Rider asked me to cancel"><span>Rider asked me to cancel</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Wrong pickup location"><span>Wrong pickup location</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Vehicle problem"><span>Vehicle problem</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Extra passengers or luggage"><span>Extra passengers or luggage</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Other"><span>Other</span></label>
+      <input class="input reason-other" id="cm-other" type="text" placeholder="Tell us what happened" hidden>
+    </div>
+    <button type="button" class="btn btn--primary btn--lg btn--block" id="cm-confirm" disabled>Cancel ride</button>
+  </div>
+</dialog>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/ev.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/captain-nav.js"></script>
+<script src="js/pages/captain.js"></script>
+</body>
+</html>

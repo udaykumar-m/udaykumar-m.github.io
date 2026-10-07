@@ -1,0 +1,46 @@
+/* My rides: gate, summary tiles, history grouped by day */
+.rides-page { padding-top: var(--s-6); }
+.rides-gate__card { max-width: 560px; margin: var(--s-6) auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--s-3); padding: var(--s-7) var(--s-5); }
+.rides-gate__icon { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--accent-tint); color: var(--accent); --icon: 32px; }
+.rides-gate__card h1 { font-size: var(--fs-h2); }
+.rides-gate__card .btn { margin-top: var(--s-2); }
+
+.rides-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
+.rstat { display: flex; flex-direction: column; gap: 2px; }
+.rstat__label { font-size: var(--fs-tiny); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.rstat__value { font-size: 26px; font-weight: 800; line-height: 1.2; }
+
+.rides-groups { display: flex; flex-direction: column; gap: var(--s-4); margin-top: var(--s-6); }
+.rides-day__head { font-family: var(--font-ui); font-size: 16px; font-weight: 800; padding: var(--s-4) var(--s-5); border-bottom: 1px solid var(--border); }
+.rides-list { display: flex; flex-direction: column; }
+.rides-list__row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto auto auto; gap: var(--s-4); align-items: center; padding: 12px var(--s-5); border-bottom: 1px solid var(--border); font-size: 14px; }
+.rides-list li:last-child { border-bottom: 0; }
+.rides-list__time { color: var(--muted); font-size: 13px; }
+.rides-list__route { min-width: 0; }
+.rides-list__route strong { display: block; font-weight: 700; overflow-wrap: anywhere; }
+.rides-list__route small { display: block; font-size: var(--fs-tiny); color: var(--muted); }
+.rides-list__status svg.lucide { --icon: 12px; }
+.rides-list__amt { font-weight: 800; white-space: nowrap; }
+.rides-list__actions { display: flex; gap: var(--s-3); }
+.rides-list__actions .link { min-height: 32px; }
+.rides-list__row.is-cancelled .rides-list__route strong { color: var(--muted); }
+.rides-groups .empty .btn { margin-top: var(--s-4); }
+
+@media (max-width: 960px) {
+  .rides-stats { grid-template-columns: 1fr 1fr; }
+  .rides-stats .rstat:first-child { grid-column: 1 / -1; }
+  .rides-list__row { grid-template-columns: 90px minmax(0, 1fr) auto; row-gap: var(--s-2); }
+  .rides-list__status { grid-column: 1; justify-self: start; }
+  .rides-list__actions { grid-column: 2 / -1; }
+}
+@media (max-width: 560px) {
+  .rides-list__row { grid-template-columns: minmax(0, 1fr) auto; padding-inline: var(--s-4); }
+  .rides-list__time, .rides-list__status { grid-column: 1; }
+  .rides-list__actions { grid-column: 1 / -1; }
+}
+
+/* My profile (shares this sheet) */
+.profile-layout { max-width: calc(640px + 2 * var(--gutter)); }
+.profile-form { display: flex; flex-direction: column; gap: var(--s-4); }
+.profile-who { display: flex; align-items: center; gap: var(--s-3); padding-bottom: var(--s-4); border-bottom: 1px solid var(--border); }
+.profile-who strong { font-size: 18px; }

@@ -1,0 +1,48 @@
+/* Ride page: request form + sticky fare card */
+.ride-page { padding-top: var(--s-6); }
+.ride-head { margin-bottom: var(--s-6); max-width: 640px; }
+.ride-head .section-head__title { font-size: var(--fs-h1); }
+.ride-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: var(--s-6); align-items: start; }
+.ride-side { position: sticky; top: calc(var(--nav-h) + var(--s-5)); display: flex; flex-direction: column; gap: var(--s-5); }
+
+/* Form */
+.ride-form { gap: var(--s-5); }
+.ride-form__route { position: relative; display: flex; flex-direction: column; gap: var(--s-4); }
+.ride-form__swap { position: absolute; right: 12px; top: 50%; translate: 0 -50%; width: 36px; height: 36px; z-index: 1; }
+.ride-form__swap svg.lucide { --icon: 16px; }
+.ride-form__route:has(.picker:not([hidden])) .ride-form__swap { visibility: hidden; } /* out of the way while a list is open */
+.ride-form__you { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+.ride-form .field[hidden] { display: none; }
+.ride-as { margin-top: calc(-1 * var(--s-2)); }
+.ride-as .link { font-size: inherit; }
+.ride-form__other { display: flex; flex-direction: column; gap: var(--s-3); padding: var(--s-4); border: 1px dashed var(--border); border-radius: var(--radius-sm); background: var(--surface-2); }
+.ride-form__other[hidden] { display: none; }
+
+/* Fare card */
+.fare-card { display: flex; flex-direction: column; gap: var(--s-4); }
+.fare-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); }
+.fare-card__title { font-family: var(--font-ui); font-size: var(--fs-h3); font-weight: 700; }
+.fare-card__empty { display: flex; align-items: center; gap: 10px; padding: var(--s-5) var(--s-4); border: 1px dashed var(--border); border-radius: var(--radius-sm); color: var(--muted); font-size: 15px; }
+.fare-card__empty svg.lucide { color: var(--accent); }
+.fare-card__body { display: flex; flex-direction: column; gap: var(--s-4); }
+.fare-card__body[hidden], .fare-card__empty[hidden] { display: none; }
+.fare-card__total { display: flex; flex-direction: column; gap: 2px; }
+.fare-card__total strong { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; }
+.fare-card__total span { font-size: 15px; }
+.fare-card__chips { gap: var(--s-2); }
+.fare-card .price-summary { padding-top: var(--s-4); border-top: 1px solid var(--border); }
+
+/* Perks list */
+.ride-perks { display: flex; flex-direction: column; gap: var(--s-3); }
+.ride-perks li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--muted); }
+.ride-perks svg.lucide { --icon: 18px; color: var(--accent); margin-top: 2px; }
+.ride-perks strong { display: block; color: var(--text); font-size: 15px; }
+
+@media (max-width: 960px) {
+  .ride-layout { grid-template-columns: 1fr; }
+  .ride-side { position: static; }
+}
+@media (max-width: 520px) {
+  .ride-form__you { grid-template-columns: 1fr; }
+  .fare-card__total strong { font-size: 34px; }
+}

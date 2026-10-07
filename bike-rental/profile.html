@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My profile — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/rides.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="section rides-gate" id="rides-gate" hidden>
+    <div class="container">
+      <div class="rides-gate__card card card--pad reveal">
+        <span class="rides-gate__icon"><i data-lucide="user"></i></span>
+        <span class="eyebrow">My profile</span>
+        <h1>Log in to see your profile</h1>
+        <p class="lead">Your name, mobile and email live here once you've logged in.</p>
+        <button type="button" class="btn btn--primary btn--lg" id="gate-login">Log in with mobile <i data-lucide="arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rides-page" id="profile-page" hidden>
+    <div class="container profile-layout">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">My profile</span>
+        <h1 class="section-head__title" id="pf-title"></h1>
+        <p class="section-head__sub" id="pf-sub"></p>
+      </div>
+
+      <form class="card card--pad profile-form reveal" id="profile-form" novalidate>
+        <div class="rider-row profile-who"><span class="avatar avatar--lg"><i data-lucide="user"></i></span><div><strong id="pf-name"></strong><div class="small muted" id="pf-phone"></div></div></div>
+        <div class="field" data-field="name">
+          <label class="label" for="pf-in-name">Name</label>
+          <div class="input-wrap"><i data-lucide="user"></i><input class="input" id="pf-in-name" type="text" autocomplete="name"></div>
+          <p class="field__error"></p>
+        </div>
+        <div class="field">
+          <label class="label" for="pf-in-phone">Mobile</label>
+          <div class="input-wrap"><i data-lucide="phone"></i><input class="input" id="pf-in-phone" type="tel" disabled></div>
+        </div>
+        <div class="field" data-field="email">
+          <label class="label" for="pf-in-email">Email</label>
+          <div class="input-wrap"><i data-lucide="mail"></i><input class="input" id="pf-in-email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+          <p class="field__hint">Receipts go here.</p>
+          <p class="field__error"></p>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn--primary btn--lg">Save changes</button>
+          <a class="btn btn--outline btn--lg" href="rides.html"><i data-lucide="route"></i>My rides</a>
+        </div>
+        <p class="notice notice--toast" id="pf-toast" hidden><i data-lucide="circle-check"></i><span>Saved.</span></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/pages/profile.js"></script>
+</body>
+</html>

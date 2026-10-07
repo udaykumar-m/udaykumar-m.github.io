@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electric bike taxi &amp; car rentals in Bhimavaram — Kinetix</title>
+<meta name="description" content="Kinetix: electric bike taxi in Bhimavaram with fixed fares from ₹20, plus self-drive car rentals by the hour or the day.">
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow">EV bike taxi · Bhimavaram</span>
+        <h1 id="hero-title">Bhimavaram, by electric bike.</h1>
+        <p class="hero__sub lead">A captain at your door in minutes. Rides from ₹20 with zero tailpipe emissions, and self-drive cars for the days you need four wheels.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="ride.html">Book a ride <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--outline btn--lg" href="cars.html">Rent a car</a>
+        </div>
+        <ul class="hero__trust" aria-label="Kinetix at a glance">
+          <li><i data-lucide="star"></i><strong>4.8</strong> rider rating</li>
+          <li><i data-lucide="zap"></i><strong>100%</strong> electric fleet</li>
+          <li><i data-lucide="map-pin"></i><strong id="trust-places">28</strong> pickup points</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <div class="carousel" id="hero-carousel" role="region" aria-roledescription="carousel" aria-label="Captain fleet">
+          <div class="carousel__disc" id="carousel-slides"></div>
+          <p class="carousel__caption" id="carousel-caption" aria-live="off"></p>
+          <div class="carousel__controls">
+            <button type="button" class="btn-icon carousel__prev" aria-label="Previous scooter"><i data-lucide="chevron-left"></i></button>
+            <div class="carousel__dots" id="carousel-dots" role="group" aria-label="Choose scooter"></div>
+            <button type="button" class="btn-icon carousel__next" aria-label="Next scooter"><i data-lucide="chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking card: ride or car -->
+  <div class="container">
+    <div class="search-card search-card--overlap" id="home-card">
+      <div class="segmented search-card__tabs" role="tablist" aria-label="What do you need">
+        <button type="button" class="segmented__btn" role="tab" id="tab-ride" aria-selected="true" aria-controls="panel-ride" data-tab="ride"><i data-lucide="zap"></i>Book a ride</button>
+        <button type="button" class="segmented__btn" role="tab" id="tab-car" aria-selected="false" aria-controls="panel-car" data-tab="car" tabindex="-1"><i data-lucide="car"></i>Rent a car</button>
+      </div>
+
+      <form class="search-card__panel" id="panel-ride" role="tabpanel" aria-labelledby="tab-ride" novalidate>
+        <div class="search-card__row search-card__row--ride">
+          <div class="field" data-field="pickup">
+            <label class="label" for="h-pickup">Pickup</label>
+            <div class="input-wrap"><i data-lucide="map-pin"></i><input class="input" id="h-pickup" name="pickup" type="text" data-places placeholder="Bhimavaram Junction, Undi…" autocomplete="off"></div>
+            <p class="field__error"></p>
+          </div>
+          <div class="field" data-field="drop">
+            <label class="label" for="h-drop">Drop</label>
+            <div class="input-wrap"><i data-lucide="flag"></i><input class="input" id="h-drop" name="drop" type="text" data-places placeholder="SRKR College, Gunupudi…" autocomplete="off"></div>
+            <p class="field__error"></p>
+          </div>
+          <div class="field" data-field="when">
+            <label class="label" for="h-when">When</label>
+            <div class="select-wrap"><select class="input" id="h-when" name="when"><option value="now">Now</option><option value="later">Schedule later</option></select><i data-lucide="chevron-down"></i></div>
+            <p class="field__error"></p>
+          </div>
+          <button type="submit" class="btn-icon btn-icon--primary btn-icon--square search-card__btn" aria-label="See fare"><i data-lucide="arrow-right"></i><span class="search-card__btn-label">See fare</span></button>
+        </div>
+        <div class="field search-card__extra" data-field="at" id="h-field-at" hidden>
+          <label class="label" for="h-at">Pickup date &amp; time</label>
+          <input class="input" id="h-at" name="at" type="datetime-local" step="900">
+          <p class="field__error"></p>
+        </div>
+        <p class="search-card__hint"><i data-lucide="indian-rupee"></i><span>Rides from ₹20 · ₹6 per km, no surge · pay after the ride</span></p>
+      </form>
+
+      <form class="search-card__panel" id="panel-car" role="tabpanel" aria-labelledby="tab-car" novalidate hidden>
+        <div class="search-card__row">
+          <div class="field" data-field="loc">
+            <label class="label" for="f-loc">Pickup location</label>
+            <div class="input-wrap"><i data-lucide="map-pin"></i><input class="input" id="f-loc" name="loc" aria-describedby="f-loc-error" type="text" data-places placeholder="Kinetix hub, Bhimavaram Junction…" autocomplete="off"></div>
+            <p class="field__error" id="f-loc-error"></p>
+          </div>
+          <div class="field" data-field="from">
+            <label class="label" for="f-from">Pickup date &amp; time</label>
+            <input class="input" id="f-from" name="from" aria-describedby="f-from-error" type="datetime-local" step="1800">
+            <p class="field__error" id="f-from-error"></p>
+          </div>
+          <div class="field" data-field="to">
+            <label class="label" for="f-to">Drop date &amp; time</label>
+            <input class="input" id="f-to" name="to" aria-describedby="f-to-error" type="datetime-local" step="1800">
+            <p class="field__error" id="f-to-error"></p>
+          </div>
+          <button type="submit" class="btn-icon btn-icon--primary btn-icon--square search-card__btn" aria-label="Search cars"><i data-lucide="search"></i><span class="search-card__btn-label">Search cars</span></button>
+        </div>
+        <p class="search-card__hint"><i data-lucide="indian-rupee"></i><span id="search-hint">Same-day rental · hourly plan · from ₹120/hour</span></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="section section--after-card" id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <div class="section-head section-head--rules reveal">
+        <span class="eyebrow">Simple by design</span>
+        <h2 class="section-head__title" id="how-title">How a Kinetix ride works</h2>
+      </div>
+      <div class="steps steps--3">
+        <div class="step reveal">
+          <div class="step__num">01</div>
+          <div class="step__icon"><i data-lucide="map-pin"></i></div>
+          <h3 class="step__title">Request</h3>
+          <p class="step__text">Enter pickup and drop. The fare is fixed before you confirm.</p>
+        </div>
+        <div class="step reveal reveal--delay-1">
+          <div class="step__num">02</div>
+          <div class="step__icon"><i data-lucide="user-check"></i></div>
+          <h3 class="step__title">Match your captain</h3>
+          <p class="step__text">Check the name and plate, share the OTP, hop on. Helmet's on us.</p>
+        </div>
+        <div class="step reveal reveal--delay-2">
+          <div class="step__num">03</div>
+          <div class="step__icon"><i data-lucide="flag"></i></div>
+          <h3 class="step__title">Arrive and pay</h3>
+          <p class="step__text">Pay by UPI or cash after the ride, then rate your captain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why electric -->
+  <section class="section" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head section-head--rules reveal">
+        <span class="eyebrow">Why Kinetix</span>
+        <h2 class="section-head__title" id="why-title">Cheaper, cleaner, quieter</h2>
+        <p class="section-head__sub">Every ride is on an electric scooter, charged at our hub each night.</p>
+      </div>
+      <div class="why">
+        <div class="why__col why__col--left reveal">
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="leaf"></i></span><span>Zero tailpipe emissions</span></div>
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="trending-down"></i></span><span>Cheaper than an auto</span></div>
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="volume-x"></i></span><span>Quiet, smooth rides</span></div>
+        </div>
+        <div class="why__circle tint-circle reveal reveal--delay-1">
+          <img src="assets/img/ev/ola-s1-pro.webp" alt="Ola S1 Pro, one of the electric scooters in the Kinetix captain fleet" loading="lazy">
+        </div>
+        <div class="why__col why__col--right reveal reveal--delay-2">
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="badge-check"></i></span><span>Verified captains</span></div>
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="hard-hat"></i></span><span>Helmet for every rider</span></div>
+          <div class="feature-pill"><span class="feature-pill__icon"><i data-lucide="key-round"></i></span><span>OTP-protected rides</span></div>
+        </div>
+      </div>
+      <div class="benefits grid grid--3">
+        <div class="benefit reveal">
+          <span class="benefit__icon"><i data-lucide="indian-rupee"></i></span>
+          <h3 class="benefit__title">No surge pricing</h3>
+          <p class="benefit__text">₹20 base plus ₹6 a kilometre, morning or midnight.</p>
+        </div>
+        <div class="benefit reveal reveal--delay-1">
+          <span class="benefit__icon"><i data-lucide="leaf"></i></span>
+          <h3 class="benefit__title">Cleaner air</h3>
+          <p class="benefit__text">Each ride avoids about 70 g of CO₂ per kilometre.</p>
+        </div>
+        <div class="benefit reveal reveal--delay-2">
+          <span class="benefit__icon"><i data-lucide="battery-charging"></i></span>
+          <h3 class="benefit__title">Charged every night</h3>
+          <p class="benefit__text">The fleet charges at our hub, so no ride is cut short.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Car rental teaser -->
+  <section class="section band" id="cars" aria-labelledby="cars-title">
+    <div class="container">
+      <div class="section-head section-head--rules reveal">
+        <span class="eyebrow">Need four wheels?</span>
+        <h2 class="section-head__title" id="cars-title">Rent a car by the hour or the day</h2>
+        <p class="section-head__sub">Self-drive. Same-day rentals bill by the hour from ₹120, longer trips by the day from ₹1,800.</p>
+      </div>
+      <div class="grid grid--4 cars-teaser" id="cars-teaser"></div>
+      <div class="cars-teaser__more reveal">
+        <a class="btn btn--outline btn--lg" href="cars.html">View all cars <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section-head section-head--rules reveal">
+        <span class="eyebrow">Riders say</span>
+        <h2 class="section-head__title" id="reviews-title">Booked, ridden, reviewed</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="card testimonial reveal">
+          <div class="testimonial__stars" role="img" aria-label="5 out of 5 stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial__quote">"Junction to college in twelve minutes for ₹54. The captain had a clean helmet ready and waited while I found my ID."</p>
+          <div class="testimonial__author">
+            <span class="avatar"><i data-lucide="user"></i></span>
+            <div><div class="testimonial__name">Lakshmi P.</div><div class="testimonial__area">Gunupudi</div></div>
+          </div>
+        </article>
+        <article class="card testimonial reveal reveal--delay-1">
+          <div class="testimonial__stars" role="img" aria-label="5 out of 5 stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial__quote">"Scheduled a 6 am ride to the station the night before. The captain was there at 5:55 and the status page told me so."</p>
+          <div class="testimonial__author">
+            <span class="avatar"><i data-lucide="user"></i></span>
+            <div><div class="testimonial__name">Ravi K.</div><div class="testimonial__area">Sivaraopeta</div></div>
+          </div>
+        </article>
+        <article class="card testimonial reveal reveal--delay-2">
+          <div class="testimonial__stars" role="img" aria-label="5 out of 5 stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <p class="testimonial__quote">"Rented a Tiago EV for a day trip to Antarvedi. Fully charged, spotless, and the hourly plan is fair for errands in town."</p>
+          <div class="testimonial__author">
+            <span class="avatar"><i data-lucide="user"></i></span>
+            <div><div class="testimonial__name">Harika V.</div><div class="testimonial__area">Vishnupur</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal teaser -->
+  <section class="section" id="journal" aria-labelledby="journal-title">
+    <div class="container">
+      <div class="section-head section-head--rules reveal">
+        <span class="eyebrow">Kinetix journal</span>
+        <h2 class="section-head__title" id="journal-title">Notes from the road</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="card card--pad card--lift post reveal">
+          <span class="chip chip--accent">Guide · 4 min</span>
+          <h3 class="post__title"><a href="blog.html">Why an electric bike taxi is the safe, cheap and clean way around Bhimavaram</a></h3>
+          <p class="post__excerpt">Helmets, OTPs, the fare maths against an auto, and what a quiet ride does for the town.</p>
+          <a class="link" href="blog.html">Read more <i data-lucide="arrow-right"></i></a>
+        </article>
+        <article class="card card--pad card--lift post reveal reveal--delay-1">
+          <span class="chip chip--accent">Money · 3 min</span>
+          <h3 class="post__title"><a href="#">What a day of Kinetix rides costs in Bhimavaram</a></h3>
+          <p class="post__excerpt">Station, college, market and back: four rides, one receipt, no surge.</p>
+          <a class="link" href="#">Read more <i data-lucide="arrow-right"></i></a>
+        </article>
+        <article class="card card--pad card--lift post reveal reveal--delay-2">
+          <span class="chip chip--accent">Fleet · 2 min</span>
+          <h3 class="post__title"><a href="#">How we charge, check and clean the fleet every night</a></h3>
+          <p class="post__excerpt">A look inside the hub near the bus station after the last ride ends.</p>
+          <a class="link" href="#">Read more <i data-lucide="arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-cta"></div>
+<footer id="site-footer"></footer>
+
+<!-- Lucide pinned on purpose: icon names are verified against this version -->
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/ev.js"></script>
+<script src="js/data/cars.js"></script>
+<script src="js/picker.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/pages/home.js"></script>
+</body>
+</html>

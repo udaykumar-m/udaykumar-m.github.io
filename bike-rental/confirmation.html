@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking confirmed — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/confirmation.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Booked state (filled by js/pages/confirmation.js) -->
+  <section class="section confirm" id="confirm" hidden>
+    <div class="container">
+      <div class="confirm__hero reveal">
+        <span class="confirm__icon"><i data-lucide="circle-check"></i></span>
+        <span class="eyebrow" id="confirm-eyebrow">Booking confirmed</span>
+        <h1 id="confirm-title">You're booked!</h1>
+        <p class="lead" id="confirm-lead">Your car is reserved. Show your reference at the pickup point and you're off.</p>
+        <div class="confirm__ref">
+          <span class="confirm__ref-label">Reference</span>
+          <code class="confirm__ref-code" id="confirm-ref">KX-000000</code>
+          <button type="button" class="btn btn--ghost" id="copy-ref"><span id="copy-label">Copy</span></button>
+          <span class="sr-only" id="copy-status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="confirm__grid">
+        <article class="card booking reveal reveal--delay-1" aria-labelledby="booking-title">
+          <div class="booking__photo tint-box" id="booking-photo">
+            <img id="booking-img" alt="">
+          </div>
+          <div class="booking__body">
+            <div class="booking__head">
+              <div>
+                <p class="small muted" id="booking-brand"></p>
+                <h2 class="booking__name" id="booking-title"></h2>
+              </div>
+              <span class="chip chip--accent" id="booking-type"></span>
+            </div>
+
+            <dl class="detail-list">
+              <div class="detail"><dt><i data-lucide="route"></i>Plan</dt><dd id="d-zone"></dd></div>
+              <div class="detail"><dt><i data-lucide="map-pin"></i>Pickup</dt><dd id="d-loc"></dd></div>
+              <div class="detail"><dt><i data-lucide="calendar"></i>When</dt><dd id="d-when"></dd></div>
+              <div class="detail"><dt><i data-lucide="clock"></i>Duration</dt><dd id="d-duration"></dd></div>
+            </dl>
+
+            <div class="price-summary">
+              <div class="price-summary__row"><span>Rate</span><span id="p-rate"></span></div>
+              <div class="price-summary__row"><span id="p-line-label">Rental</span><span id="p-subtotal"></span></div>
+              <div class="price-summary__row"><span>Refundable deposit</span><span id="p-deposit"></span></div>
+              <div class="price-summary__row price-summary__row--total"><span id="p-total-label">Total at pickup</span><span id="p-total"></span></div>
+              <p class="price-summary__note" id="p-note">Prices exclude fuel. Taxes shown at pickup. Deposit is returned when the car comes back as it left.</p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="confirm__side reveal reveal--delay-2">
+          <h2 class="confirm__side-title">What happens next</h2>
+          <ol class="next-steps">
+            <li class="next-step">
+              <span class="next-step__num">1</span>
+              <div>
+                <h3 class="next-step__title">Keep your reference handy</h3>
+                <p class="next-step__text">Your reference is all our pickup team needs to hand over the car. Screenshot this page or copy it above.</p>
+              </div>
+            </li>
+            <li class="next-step">
+              <span class="next-step__num">2</span>
+              <div>
+                <h3 class="next-step__title" id="step-pickup-title">Reach the pickup point</h3>
+                <p class="next-step__text" id="step-pickup">Arrive 10 minutes early with your driving licence and a photo ID. We'll do a two-minute walkaround together.</p>
+              </div>
+            </li>
+            <li class="next-step">
+              <span class="next-step__num">3</span>
+              <div>
+                <h3 class="next-step__title">Pay at pickup, then drive</h3>
+                <p class="next-step__text" id="step-pay">Pay by UPI or card at the counter. The deposit comes back when you return the car. Keys and papers are in the car.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="notice"><i data-lucide="shield-check"></i><span id="confirm-notice-text">Free cancellation up to 24 hours before pickup.</span></div>
+
+          <div class="confirm__actions">
+            <a class="btn btn--primary btn--lg" href="cars.html">Browse more cars <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn--outline btn--lg" href="index.html">Back to home</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shown when the URL has no usable booking -->
+  <section class="section confirm confirm--missing" id="missing" hidden>
+    <div class="container">
+      <div class="confirm__hero reveal">
+        <span class="confirm__icon confirm__icon--muted"><i data-lucide="search"></i></span>
+        <span class="eyebrow">No booking found</span>
+        <h1>Nothing to confirm yet</h1>
+        <p class="lead">This page shows your booking once you've confirmed one. Pick a car, choose your times and you'll land back here with a reference.</p>
+        <div class="confirm__actions confirm__actions--center">
+          <a class="btn btn--primary btn--lg" href="cars.html">Find a car <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--outline btn--lg" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/cars.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/pages/confirmation.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile — Kinetix Captain</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/captain.css">
+</head>
+<body>
+<header id="captain-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="section cap-gate" id="cap-gate" hidden>
+    <div class="container">
+      <div class="cap-gate__card card card--pad reveal">
+        <span class="cap-gate__icon"><i data-lucide="bike"></i></span>
+        <span class="eyebrow">Kinetix captain</span>
+        <h1>Captain login</h1>
+        <p class="lead">Log in with your captain mobile to see your profile.</p>
+        <button type="button" class="btn btn--primary btn--lg" id="gate-login">Log in with mobile <i data-lucide="arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cap-page" id="cap-profile" hidden>
+    <div class="container">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">Captain</span>
+        <h1 class="section-head__title">Profile</h1>
+      </div>
+      <div class="cap-grid cap-grid--profile">
+        <div class="cap-main">
+          <section class="card card--pad profile-card reveal">
+            <div class="rider-row rider-row--lg">
+              <span class="avatar avatar--lg"><i data-lucide="user"></i></span>
+              <div><h2 class="profile-card__name" id="p-name"></h2><div class="small muted" id="p-meta"></div></div>
+            </div>
+            <dl class="detail-list">
+              <div class="detail"><dt><i data-lucide="phone"></i>Mobile</dt><dd id="p-phone"></dd></div>
+              <div class="detail"><dt><i data-lucide="star"></i>Rating</dt><dd id="p-rating"></dd></div>
+              <div class="detail"><dt><i data-lucide="route"></i>Lifetime rides</dt><dd id="p-rides"></dd></div>
+              <div class="detail"><dt><i data-lucide="calendar"></i>Captain since</dt><dd id="p-since"></dd></div>
+            </dl>
+          </section>
+
+          <section class="card card--pad reveal reveal--delay-1" aria-labelledby="veh-title">
+            <h2 class="cap-side__title" id="veh-title">Scooter</h2>
+            <div class="vehicle">
+              <div class="vehicle__photo"><img id="v-img" alt=""></div>
+              <div class="vehicle__body">
+                <strong id="v-name"></strong>
+                <div class="row"><span class="chip" id="v-plate"></span><span class="chip chip--accent"><i data-lucide="zap"></i>Electric</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="cap-side">
+          <section class="card card--pad reveal reveal--delay-1" aria-labelledby="doc-title">
+            <h2 class="cap-side__title" id="doc-title">Documents</h2>
+            <ul class="doc-list">
+              <li><i data-lucide="id-card"></i><span>Driving licence<small id="d-licence"></small></span><span class="chip chip--accent"><i data-lucide="check"></i>Verified</span></li>
+              <li><i data-lucide="file-check"></i><span>Registration certificate<small id="d-rc"></small></span><span class="chip chip--accent"><i data-lucide="check"></i>Verified</span></li>
+              <li><i data-lucide="shield-check"></i><span>Insurance<small>Valid till Mar 2027</small></span><span class="chip chip--accent"><i data-lucide="check"></i>Valid</span></li>
+              <li><i data-lucide="badge-check"></i><span>Police verification<small>Bhimavaram Town PS</small></span><span class="chip chip--accent"><i data-lucide="check"></i>Done</span></li>
+            </ul>
+          </section>
+          <section class="card card--pad reveal reveal--delay-2">
+            <h2 class="cap-side__title">Account</h2>
+            <p class="small muted">Payouts go to the bank account on file every Monday. Changes need a visit to the hub.</p>
+            <div class="row profile-actions">
+              <a class="btn btn--outline" href="contact.html"><i data-lucide="headset"></i>Support</a>
+              <button type="button" class="btn btn--ghost" id="p-logout"><i data-lucide="log-out"></i>Log out</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/ev.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/captain-nav.js"></script>
+<script src="js/pages/captain-profile.js"></script>
+</body>
+</html>

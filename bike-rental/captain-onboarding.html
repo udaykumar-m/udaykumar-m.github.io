@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Captain onboarding — Kinetix (internal)</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/captain.css">
+</head>
+<body>
+<header id="captain-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Internal page: reachable only by URL. Moves to the admin console later. -->
+  <section class="section cap-page onboarding">
+    <div class="container onboarding__layout">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">Internal · onboarding</span>
+        <h1 class="section-head__title">Add a captain</h1>
+        <p class="section-head__sub">Fill this at the hub after checking the originals. The captain then logs in with the mobile number below.</p>
+      </div>
+
+      <form class="card card--pad onboarding__form reveal" id="ob-form" novalidate>
+        <h2 class="cap-side__title">Captain</h2>
+        <div class="ride-form__you">
+          <div class="field" data-field="name">
+            <label class="label" for="ob-name">Full name</label>
+            <div class="input-wrap"><i data-lucide="user"></i><input class="input" id="ob-name" name="name" type="text" autocomplete="off" placeholder="As on the licence"></div>
+            <p class="field__error"></p>
+          </div>
+          <div class="field" data-field="phone">
+            <label class="label" for="ob-phone">Mobile</label>
+            <div class="input-wrap"><i data-lucide="phone"></i><input class="input" id="ob-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="98xxx xxxxx"></div>
+            <p class="field__error"></p>
+          </div>
+        </div>
+        <div class="field" data-field="email">
+          <label class="label" for="ob-email">Email <span class="muted">(optional)</span></label>
+          <div class="input-wrap"><i data-lucide="mail"></i><input class="input" id="ob-email" name="email" type="email" autocomplete="off" placeholder="captain@example.com"></div>
+          <p class="field__error"></p>
+        </div>
+
+        <h2 class="cap-side__title">Scooter</h2>
+        <div class="ride-form__you">
+          <div class="field" data-field="vehicle">
+            <label class="label" for="ob-vehicle">Model</label>
+            <div class="select-wrap"><select class="input" id="ob-vehicle" name="vehicle"><option value="">Choose…</option></select><i data-lucide="chevron-down"></i></div>
+            <p class="field__error"></p>
+          </div>
+          <div class="field" data-field="plate">
+            <label class="label" for="ob-plate">Number plate</label>
+            <input class="input" id="ob-plate" name="plate" type="text" autocomplete="off" placeholder="AP 37 CE 4821" style="text-transform: uppercase">
+            <p class="field__error"></p>
+          </div>
+        </div>
+
+        <h2 class="cap-side__title">Documents</h2>
+        <div class="field" data-field="licence">
+          <label class="label" for="ob-licence">Driving licence number</label>
+          <div class="input-wrap"><i data-lucide="id-card"></i><input class="input" id="ob-licence" name="licence" type="text" autocomplete="off" placeholder="AP37 20190012345"></div>
+          <p class="field__error"></p>
+        </div>
+        <div class="ride-form__you">
+          <div class="field"><label class="label" for="ob-doc-lic">Licence photo</label><input class="input input--file" id="ob-doc-lic" type="file" accept="image/*,.pdf"><p class="field__hint">Not uploaded in the demo.</p></div>
+          <div class="field"><label class="label" for="ob-doc-rc">RC &amp; insurance</label><input class="input input--file" id="ob-doc-rc" type="file" accept="image/*,.pdf" multiple><p class="field__hint">Not uploaded in the demo.</p></div>
+        </div>
+        <div class="field" data-field="consent">
+          <label class="checkbox"><input type="checkbox" id="ob-consent"><span>I checked the originals and the police verification is done.</span></label>
+          <p class="field__error"></p>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--lg btn--block" id="ob-submit">Create captain account <i data-lucide="arrow-right"></i></button>
+      </form>
+
+      <div class="card card--pad onboarding__done reveal" id="ob-done" hidden>
+        <span class="cap-gate__icon"><i data-lucide="circle-check"></i></span>
+        <h2>Captain account created</h2>
+        <p class="lead" id="ob-done-text"></p>
+        <p class="small muted">They can log in on the captain page with that mobile. A one-time code is sent each time.</p>
+        <div class="row">
+          <a class="btn btn--primary btn--lg" href="captain.html">Go to captain login <i data-lucide="arrow-right"></i></a>
+          <button type="button" class="btn btn--outline btn--lg" id="ob-another">Add another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/ev.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/captain-nav.js"></script>
+<script src="js/pages/captain-onboarding.js"></script>
+</body>
+</html>

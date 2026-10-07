@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ride status — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/track.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Live ride (filled by js/pages/track.js) -->
+  <section class="section track" id="track" hidden>
+    <div class="container">
+      <div class="track__head reveal">
+        <div>
+          <span class="eyebrow" id="track-eyebrow">Ride requested</span>
+          <h1 class="track__title" id="track-title">Finding you a captain…</h1>
+          <p class="lead track__lead" id="track-lead"></p>
+        </div>
+        <div class="track__ref">
+          <span class="track__ref-label">Ride ID</span>
+          <code class="track__ref-code" id="track-ref">KR-000000</code>
+        </div>
+      </div>
+
+      <div class="track__grid">
+        <section class="card card--pad timeline-card reveal reveal--delay-1" aria-labelledby="timeline-title">
+          <div class="timeline-card__head">
+            <h2 class="timeline-card__title" id="timeline-title">Ride updates</h2>
+            <span class="chip chip--muted" id="timeline-live"><i data-lucide="radio"></i>Live</span>
+          </div>
+          <ol class="timeline" id="timeline" aria-live="polite"></ol>
+          <p class="small muted timeline-card__note" id="timeline-note" hidden></p>
+        </section>
+
+        <aside class="track__side reveal reveal--delay-2">
+          <section class="card card--pad captain-card" id="captain-card" hidden aria-labelledby="captain-title">
+            <h2 class="sr-only" id="captain-title">Your captain</h2>
+            <div class="captain-card__who">
+              <span class="avatar avatar--lg"><i data-lucide="user"></i></span>
+              <div>
+                <div class="captain-card__name" id="cap-name"></div>
+                <div class="small muted" id="cap-meta"></div>
+              </div>
+            </div>
+            <div class="row captain-card__vehicle">
+              <span class="chip chip--accent"><i data-lucide="zap"></i><span id="cap-vehicle"></span></span>
+              <span class="chip" id="cap-plate"></span>
+            </div>
+            <div class="otp" id="otp-box">
+              <span class="otp__label">Share this OTP to start the ride</span>
+              <strong class="otp__code" id="cap-otp"></strong>
+            </div>
+            <p class="notice notice--ok" id="otp-done" hidden><i data-lucide="circle-check"></i><span>OTP verified. Ride started.</span></p>
+            <a class="btn btn--outline btn--block captain-card__call" id="cap-call" href="#"><i data-lucide="phone"></i><span id="cap-phone"></span></a>
+            <p class="text-center captain-card__dev" id="dev-recancel-wrap" hidden><button type="button" class="dev-tag" id="dev-recancel" title="Development only: the captain cancels after accepting">dev · captain cancels</button> <button type="button" class="dev-tag" id="dev-busy" title="Development only: the captain is finishing another ride first">dev · captain busy</button></p>
+          </section>
+
+          <section class="card card--pad fare-box" aria-labelledby="fare-title">
+            <h2 class="fare-box__title" id="fare-title">Fare</h2>
+            <div class="price-summary">
+              <div class="price-summary__row"><span>Base fare</span><span id="f-base"></span></div>
+              <div class="price-summary__row"><span id="f-dist-label">Distance</span><span id="f-dist"></span></div>
+              <div class="price-summary__row price-summary__row--total"><span>Total</span><span id="f-total"></span></div>
+              <p class="price-summary__note" id="f-note">Pay by UPI or cash when the ride ends.</p>
+            </div>
+            <p class="fare-box__eco"><i data-lucide="leaf"></i><span id="f-eco"></span></p>
+            <p class="tiny muted" id="f-rider"></p>
+          </section>
+
+          <div class="track__actions">
+            <button type="button" class="btn btn--outline" id="btn-share"><i data-lucide="share-2"></i><span id="share-label">Share ride</span></button>
+            <button type="button" class="btn btn--ghost" id="btn-cancel"><i data-lucide="x"></i>Cancel ride</button>
+            <a class="btn btn--primary" id="btn-again" href="ride.html" hidden>Book another ride <i data-lucide="arrow-right"></i></a>
+          </div>
+          <p class="tiny muted">Need help? <a class="link link--inline" href="contact.html">Contact us</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- No usable ride in the URL -->
+  <section class="section track track--missing" id="missing" hidden>
+    <div class="container">
+      <div class="track__empty reveal">
+        <span class="track__empty-icon"><i data-lucide="search"></i></span>
+        <span class="eyebrow">No ride found</span>
+        <h1>Nothing to track yet</h1>
+        <p class="lead">This page shows your ride updates once you've requested one. Pick a pickup and a drop and you'll land back here.</p>
+        <div class="row row--center track__empty-actions">
+          <a class="btn btn--primary btn--lg" href="ride.html">Book a ride <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--outline btn--lg" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Dismissable confirmation for "Cancel ride" -->
+<dialog class="modal" id="cancel-modal" aria-labelledby="cm-title">
+  <div class="modal__card modal__card--compact" tabindex="-1">
+    <button type="button" class="btn-icon modal__close" data-close aria-label="Close"><i data-lucide="x"></i></button>
+    <div class="modal__head"><span class="modal__icon modal__icon--sm"><i data-lucide="circle-x"></i></span><h2 class="modal__title" id="cm-title">Cancel this ride?</h2></div>
+    <p class="small muted" id="cm-text">Are you sure you want to cancel? There is no charge before the ride starts.</p>
+    <div class="reason-list" id="cm-reasons" role="radiogroup" aria-label="Select the reason" hidden>
+      <p class="label">Select the reason</p>
+      <label class="reason"><input type="radio" name="cm-reason" value="Captain is taking too long"><span>Captain is taking too long</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Captain isn't moving or is far away"><span>Captain isn't moving or is far away</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Captain asked me to cancel"><span>Captain asked me to cancel</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Captain is not responding"><span>Captain is not responding</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Wrong pickup location"><span>Wrong pickup location</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="My plans changed"><span>My plans changed</span></label>
+      <label class="reason"><input type="radio" name="cm-reason" value="Other"><span>Other</span></label>
+      <input class="input reason-other" id="cm-other" type="text" placeholder="Tell us what happened" hidden>
+    </div>
+    <button type="button" class="btn btn--primary btn--lg btn--block" id="cm-confirm">Cancel ride</button>
+  </div>
+</dialog>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/pages/track.js"></script>
+</body>
+</html>

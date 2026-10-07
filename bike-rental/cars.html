@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cars in Bhimavaram — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/cars.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="cars-head">
+    <div class="container">
+      <div class="cars-head__row">
+        <div>
+          <span class="eyebrow">Our fleet · Bhimavaram</span>
+          <h1 class="cars-head__title">Cars in Bhimavaram</h1>
+          <p class="cars-head__count muted" id="result-count">Loading the fleet…</p>
+        </div>
+        <div class="cars-head__trip row" id="trip-summary" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cars-main">
+    <div class="container">
+      <button type="button" class="btn btn--outline cars-filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="cars-sidebar">
+        <i data-lucide="sliders-horizontal"></i>Dates &amp; filters <span class="chip chip--solid" id="filter-count" hidden>0</span>
+      </button>
+
+      <div class="cars-layout">
+        <aside class="cars-sidebar" id="cars-sidebar">
+          <!-- Search fields: same contract as the home search card, stacked -->
+          <form class="search-card search-card--compact search-card--stack" id="search-form" novalidate>
+            <div class="search-card__row">
+              <div class="field" data-field="loc">
+                <label class="label" for="f-loc">Pickup location</label>
+                <div class="input-wrap"><i data-lucide="map-pin"></i><input class="input" id="f-loc" name="loc" aria-describedby="f-loc-error" data-places placeholder="Bhimavaram Junction, Undi…" autocomplete="off"></div>
+                <p class="field__error" id="f-loc-error"></p>
+              </div>
+              <div class="field" data-field="from">
+                <label class="label" for="f-from">Pickup date &amp; time</label>
+                <input class="input" type="datetime-local" id="f-from" name="from" aria-describedby="f-from-error" step="1800">
+                <p class="field__error" id="f-from-error"></p>
+              </div>
+              <div class="field" data-field="to">
+                <label class="label" for="f-to">Drop date &amp; time</label>
+                <input class="input" type="datetime-local" id="f-to" name="to" aria-describedby="f-to-error" step="1800">
+                <p class="field__error" id="f-to-error"></p>
+              </div>
+              <button class="btn btn--primary btn--block" type="submit"><i data-lucide="search"></i>Update</button>
+            </div>
+          </form>
+
+          <div class="card card--pad filters" id="filters">
+            <div class="filters__head">
+              <h2 class="filters__title"><i data-lucide="funnel"></i>Filters</h2>
+              <button type="button" class="link filters__reset" id="filter-reset">Reset</button>
+            </div>
+            <div class="filters__group">
+              <label class="switch" id="avail-wrap"><input type="checkbox" id="f-avail"><span class="switch__track"></span>Available now only</label>
+              <p class="tiny muted" id="avail-note" hidden>Only for pickups today.</p>
+            </div>
+            <div class="filters__group">
+              <label class="label filters__range-label" for="f-price">Max price <output id="price-out" for="f-price">₹400/hr</output></label>
+              <input class="range" type="range" id="f-price" min="120" max="400" step="10" value="400">
+              <div class="filters__range-ends tiny muted"><span id="price-min">₹120</span><span id="price-max">₹400</span></div>
+            </div>
+            <div class="filters__group">
+              <label class="label filters__range-label" for="f-mileage">Min mileage <output id="mileage-out" for="f-mileage">Any</output></label>
+              <input class="range" type="range" id="f-mileage" min="0" max="25" step="5" value="0">
+              <div class="filters__range-ends tiny muted"><span>Any</span><span>25 kmpl</span></div>
+            </div>
+            <div class="filters__group">
+              <span class="label" id="trans-label">Transmission</span>
+              <div class="filters__chips" id="trans-chips" role="group" aria-labelledby="trans-label">
+                <button type="button" class="chip chip--solid" data-trans="any" aria-pressed="true">Any</button>
+                <button type="button" class="chip" data-trans="automatic" aria-pressed="false">Automatic</button>
+                <button type="button" class="chip" data-trans="manual" aria-pressed="false">Manual</button>
+              </div>
+            </div>
+            <div class="filters__group">
+              <span class="label" id="fuel-label">Fuel</span>
+              <div class="filters__chips" id="fuel-chips" role="group" aria-labelledby="fuel-label">
+                <button type="button" class="chip chip--solid" data-fuel="any" aria-pressed="true">Any</button>
+                <button type="button" class="chip" data-fuel="electric" aria-pressed="false"><i data-lucide="zap"></i>Electric</button>
+                <button type="button" class="chip" data-fuel="petrol" aria-pressed="false">Petrol</button>
+                <button type="button" class="chip" data-fuel="diesel" aria-pressed="false">Diesel</button>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="cars-results">
+          <div class="cars-toolbar">
+            <p class="small muted" id="toolbar-count" aria-live="polite"></p>
+            <div class="field cars-sort">
+              <label class="label" for="f-sort">Sort</label>
+              <div class="select-wrap"><select class="input" id="f-sort">
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="mileage">Mileage</option>
+                <option value="seats">Seats</option>
+              </select><i data-lucide="chevron-down"></i></div>
+            </div>
+          </div>
+          <!-- Quick chips: body type, plus Electric which filters on fuel -->
+          <div class="cars-quick" id="quick-chips" role="group" aria-label="Car type">
+            <button type="button" class="chip chip--solid" data-type="" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-type="hatchback" aria-pressed="false">Hatchback</button>
+            <button type="button" class="chip" data-type="sedan" aria-pressed="false">Sedan</button>
+            <button type="button" class="chip" data-type="suv" aria-pressed="false">SUV</button>
+            <button type="button" class="chip" data-type="muv" aria-pressed="false">MUV</button>
+            <button type="button" class="chip" data-fuel="electric" aria-pressed="false"><i data-lucide="zap"></i>Electric</button>
+          </div>
+          <div class="car-grid reveal" id="car-grid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/cars.js"></script>
+<script src="js/picker.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/pages/cars.js"></script>
+</body>
+</html>

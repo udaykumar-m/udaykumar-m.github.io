@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My rides — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/rides.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <!-- Not logged in -->
+  <section class="section rides-gate" id="rides-gate" hidden>
+    <div class="container">
+      <div class="rides-gate__card card card--pad reveal">
+        <span class="rides-gate__icon"><i data-lucide="route"></i></span>
+        <span class="eyebrow">My rides</span>
+        <h1>Your rides live here</h1>
+        <p class="lead">Log in with your mobile to see past rides, receipts and anything scheduled.</p>
+        <button type="button" class="btn btn--primary btn--lg" id="gate-login">Log in with mobile <i data-lucide="arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="section rides-page" id="rides-page" hidden>
+    <div class="container">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">My rides</span>
+        <h1 class="section-head__title">Where you've been</h1>
+        <p class="section-head__sub" id="rides-sub"></p>
+      </div>
+
+      <div class="rides-stats reveal">
+        <div class="card card--pad rstat"><span class="rstat__label">Rides</span><strong class="rstat__value" id="rs-count">0</strong></div>
+        <div class="card card--pad rstat"><span class="rstat__label">Spent</span><strong class="rstat__value" id="rs-spent">₹0</strong></div>
+        <div class="card card--pad rstat"><span class="rstat__label">CO₂ avoided</span><strong class="rstat__value accent" id="rs-co2">0 g</strong></div>
+      </div>
+
+      <div class="rides-groups reveal reveal--delay-1" id="rides-groups"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/pages/rides.js"></script>
+</body>
+</html>

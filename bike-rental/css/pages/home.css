@@ -1,0 +1,118 @@
+/* Home — page layout only; components come from components.css */
+
+/* Hero */
+.hero { background: var(--accent-tint); overflow: hidden; }
+[data-theme="dark"] .hero { background: var(--surface); border-bottom: 1px solid var(--border); }
+.hero__grid {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--s-7); align-items: center;
+  padding-top: var(--s-8); padding-bottom: var(--s-9); /* card overlaps 56px, so ~40px sits between controls and card */
+}
+.hero__copy .eyebrow { margin-bottom: var(--s-4); }
+.hero__copy h1 { font-size: clamp(40px, 4.6vw, 72px); }
+.hero__sub { margin-top: var(--s-6); max-width: 44ch; }
+[data-theme="dark"] .hero__sub { color: var(--muted); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+.hero__trust { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-5); margin-top: var(--s-6); font-size: var(--fs-small); color: var(--muted); }
+.hero__trust li { display: inline-flex; align-items: center; gap: 6px; }
+.hero__trust strong { color: var(--text); font-weight: 700; }
+.hero__trust svg.lucide { --icon: 16px; color: var(--accent); }
+.hero__trust .lucide-star { fill: currentColor; }
+
+/* Carousel */
+.hero__visual { min-width: 0; }
+.carousel { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); }
+.carousel__disc {
+  position: relative; width: min(100%, clamp(360px, 52vh, 560px)); aspect-ratio: 1; border-radius: 50%; /* scales with viewport height so the booking card stays above the fold */
+  background: var(--accent-tint-2);
+}
+.carousel__slide { position: absolute; inset: 9% 2%; opacity: 0; transition: opacity 600ms ease; }
+.carousel__slide.is-active { opacity: 1; }
+.carousel__slide img { width: 100%; height: 100%; object-fit: contain; }
+.carousel__caption {
+  display: inline-flex; align-items: center; gap: var(--s-2); height: 36px; padding: 0 var(--s-4);
+  border-radius: var(--radius-pill); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  font-size: var(--fs-small); font-weight: 600; white-space: nowrap;
+}
+.carousel__caption .accent { font-weight: 700; }
+.carousel__controls { display: flex; align-items: center; gap: var(--s-4); }
+.carousel__dots { display: flex; align-items: center; }
+/* 8px visual dot on a 40px hit area */
+.carousel__dot { position: relative; width: 40px; height: 40px; padding: 0; background: none; border-radius: var(--radius-pill); }
+.carousel__dot::before {
+  content: ''; position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  width: var(--s-2); height: var(--s-2); border-radius: var(--radius-pill); background: var(--muted); opacity: .35;
+  transition: width var(--t-fast), opacity var(--t-fast), background-color var(--t-fast);
+}
+.carousel__dot.is-active::before { width: 22px; background: var(--accent); opacity: 1; }
+.carousel__dot:hover::before { opacity: .7; }
+/* wide screens: disc bleeds past the hero's right edge (hero clips it) */
+@media (min-width: 1240px) { .carousel { margin-right: calc(-1 * var(--s-8)); translate: calc(var(--gutter) - var(--s-6)) 0; } }
+@media (prefers-reduced-motion: reduce) { .carousel__slide { transition: none; } }
+
+/* Booking card tabs + ride row */
+.search-card__tabs { align-self: flex-start; }
+.search-card__panel { display: flex; flex-direction: column; gap: var(--s-4); }
+.search-card__panel[hidden] { display: none; }
+.search-card__row--ride { grid-template-columns: 1.2fr 1.2fr .8fr auto; }
+.search-card__extra { max-width: 320px; }
+.search-card__extra[hidden] { display: none; }
+
+/* Section after the overlapping booking card: normal section spacing */
+.section--after-card { padding-top: var(--section-y); }
+.steps--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 960px; margin-inline: auto; }
+
+/* Why Kinetix */
+.why { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, 1fr); gap: var(--s-6); align-items: center; }
+.why__col { display: flex; flex-direction: column; gap: var(--s-5); }
+.why__col--left { align-items: flex-end; }
+.why__col--left .feature-pill:nth-child(2) { margin-right: var(--s-7); }
+.why__col--right .feature-pill:nth-child(2) { margin-left: var(--s-7); }
+.why__circle { width: 100%; max-width: 400px; margin-inline: auto; }
+.benefits { margin-top: var(--s-8); }
+.benefit { text-align: center; padding: var(--s-5) var(--s-4); }
+.benefit__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px; border-radius: 50%; background: var(--accent-tint); color: var(--accent);
+}
+.benefit__icon svg.lucide { --icon: 24px; }
+.benefit__title { font-size: 18px; margin-top: var(--s-4); }
+.benefit__text { color: var(--muted); font-size: 15px; margin: var(--s-1) auto 0; }
+
+/* Car teaser: tall PNG photos must not grow the 16/10 photo box */
+.cars-teaser .car-card__photo { position: relative; }
+.cars-teaser .car-card__photo img { position: absolute; inset: var(--s-4); width: calc(100% - 2 * var(--s-4)); height: calc(100% - 2 * var(--s-4)); }
+.cars-teaser__more { display: flex; justify-content: center; margin-top: var(--s-7); }
+
+/* Journal teaser */
+.post { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+.post__title { font-size: 19px; line-height: 1.3; }
+.post__title a:hover { color: var(--accent); }
+.post__excerpt { color: var(--muted); font-size: 15px; flex: 1; }
+
+/* Tablet */
+@media (max-width: 960px) {
+  .hero__grid { grid-template-columns: 1fr; gap: var(--s-6); padding-top: var(--s-7); padding-bottom: var(--s-9); }
+  .carousel__disc { width: min(100%, 360px); }
+  .search-card__row--ride { grid-template-columns: 1fr 1fr; }
+  .search-card__extra { max-width: none; }
+  .why { grid-template-columns: 1fr; gap: var(--s-5); }
+  .why__circle { order: -1; max-width: 300px; }
+  .why__col, .why__col--left { align-items: stretch; }
+  .why__col .feature-pill { width: auto; margin: 0 !important; }
+  .benefits { margin-top: var(--s-7); }
+  .steps--3 { grid-template-columns: 1fr; max-width: 420px; }
+}
+/* tablets: visual leads; phones keep copy + CTA in the first screen */
+@media (min-width: 561px) and (max-width: 960px) { .hero__visual { order: -1; } }
+/* Phone */
+@media (max-width: 560px) {
+  .hero__grid { padding-top: var(--s-6); padding-bottom: var(--s-8); }
+  .carousel__disc { width: min(100%, 280px); }
+  .carousel__controls { gap: var(--s-2); }
+  .hero__actions .btn { width: 100%; }
+  .search-card__row--ride { grid-template-columns: 1fr; }
+  .search-card__tabs { align-self: stretch; display: flex; }
+  .search-card__tabs .segmented__btn { flex: 1; justify-content: center; }
+  .carousel__caption { white-space: normal; height: auto; min-height: 36px; padding-block: 6px; text-align: center; }
+}

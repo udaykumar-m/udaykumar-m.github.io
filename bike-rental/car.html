@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Car — Kinetix</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/car.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="section car-page">
+    <div class="container">
+      <a class="link car-back" id="car-back" href="cars.html"><i data-lucide="chevron-left"></i>All cars</a>
+
+      <!-- Product + booking (filled by js/pages/car.js) -->
+      <div class="car-layout" id="car-page" hidden>
+        <div class="car-main reveal">
+          <div class="tint-box car-hero" id="car-hero">
+            <img id="car-img" alt="">
+            <span class="chip car-hero__badge" id="car-badge" hidden>Unavailable</span>
+          </div>
+          <div class="car-head">
+            <span class="eyebrow" id="car-brand"></span>
+            <h1 class="car-title" id="car-name"></h1>
+            <div class="row car-meta">
+              <span class="chip" id="car-type"></span>
+              <span id="car-seats"></span><span class="dot" aria-hidden="true">·</span><span id="car-trans"></span><span class="dot" aria-hidden="true">·</span><span id="car-mileage"></span>
+            </div>
+            <p class="lead car-blurb" id="car-blurb"></p>
+          </div>
+          <div class="car-rates">
+            <div class="car-rate"><div class="car-rate__label">Hourly · same day</div><div class="car-rate__value"><span id="rate-hourly"></span><small>/hr</small></div></div>
+            <div class="car-rate"><div class="car-rate__label">Daily · across days</div><div class="car-rate__value"><span id="rate-daily"></span><small>/day</small></div></div>
+            <div class="car-rate"><div class="car-rate__label">Refundable deposit</div><div class="car-rate__value"><span id="rate-deposit"></span></div></div>
+          </div>
+        </div>
+
+        <aside class="car-side reveal reveal--delay-1">
+          <form class="search-card search-card--stack search-card--compact booking-card" id="booking-form" novalidate>
+            <div>
+              <h2 class="booking-card__title" id="booking-title">Book this car</h2>
+              <p class="small muted" id="booking-sub">Instant confirmation. Pay at pickup.</p>
+            </div>
+            <div class="search-card__row">
+              <div class="field" id="field-loc">
+                <label class="label" for="loc">Pickup location</label>
+                <div class="input-wrap"><i data-lucide="map-pin"></i><input class="input" id="loc" name="loc" data-places autocomplete="off" placeholder="Bhimavaram Junction, Undi…"></div>
+                <p class="field__error" id="err-loc"></p>
+              </div>
+              <div class="field" id="field-from">
+                <label class="label" for="from">Pickup date &amp; time</label>
+                <input class="input" type="datetime-local" id="from" name="from" step="1800">
+                <p class="field__error" id="err-from"></p>
+              </div>
+              <div class="field" id="field-to">
+                <label class="label" for="to">Drop date &amp; time</label>
+                <input class="input" type="datetime-local" id="to" name="to" step="1800">
+                <p class="field__error" id="err-to"></p>
+              </div>
+            </div>
+            <p class="search-card__hint"><i data-lucide="indian-rupee"></i><span id="rate-hint"></span></p>
+
+            <div class="price-summary" aria-live="polite">
+              <p class="small muted" id="q-when"></p>
+              <div class="price-summary__row"><span id="q-line"></span><span id="q-sub"></span></div>
+              <div class="price-summary__row"><span>Refundable deposit</span><span id="q-dep"></span></div>
+              <div class="price-summary__row price-summary__row--total"><span id="q-total-label">Total</span><span id="q-total"></span></div>
+            </div>
+
+            <div class="notice" id="booking-notice" hidden><i data-lucide="timer"></i><span>This car is out on rent right now. Pick a similar one below.</span></div>
+            <div class="notice notice--reserve" id="booking-reserve" hidden><i data-lucide="bell"></i><span id="booking-reserve-text"></span></div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block" id="confirm-btn">Confirm booking <i data-lucide="arrow-right"></i></button>
+            <p class="tiny muted text-center booking-card__terms" id="booking-terms">No card needed. Free cancellation up to 24 h before pickup.</p>
+          </form>
+          <p class="tiny muted text-center booking-note">Prices exclude fuel. EVs go out fully charged. Taxes shown at pickup.</p>
+        </aside>
+
+        <div class="car-more reveal reveal--delay-1">
+          <section class="car-section" aria-labelledby="specs-title">
+            <h2 class="car-section__title" id="specs-title">Specifications</h2>
+            <div class="spec-grid">
+              <div class="spec"><div class="spec__label" id="spec-engine-label">Engine</div><div class="spec__value" id="spec-engine"></div></div>
+              <div class="spec"><div class="spec__label" id="spec-mileage-label">Mileage</div><div class="spec__value" id="spec-mileage"></div></div>
+              <div class="spec"><div class="spec__label">Transmission</div><div class="spec__value" id="spec-transmission"></div></div>
+              <div class="spec"><div class="spec__label">Seats</div><div class="spec__value" id="spec-seats"></div></div>
+              <div class="spec"><div class="spec__label">Boot space</div><div class="spec__value" id="spec-boot"></div></div>
+              <div class="spec"><div class="spec__label" id="spec-fuel-label">Fuel</div><div class="spec__value" id="spec-fuel"></div></div>
+            </div>
+          </section>
+
+          <div class="grid grid--2 car-section">
+            <section aria-labelledby="incl-title">
+              <h2 class="car-section__title" id="incl-title">What's included</h2>
+              <ul class="check-list">
+                <li><i data-lucide="check"></i>Comprehensive insurance for the whole rental</li>
+                <li><i data-lucide="check"></i>24×7 roadside assistance across West Godavari</li>
+                <li><i data-lucide="check"></i>Free cancellation up to 24 hours before pickup</li>
+                <li><i data-lucide="check"></i>Sanitised and handed over with a full tank or a full charge</li>
+              </ul>
+            </section>
+            <section aria-labelledby="carry-title">
+              <h2 class="car-section__title" id="carry-title">Need to carry</h2>
+              <ul class="check-list">
+                <li><i data-lucide="badge-check"></i>Original LMV driving licence</li>
+                <li><i data-lucide="user"></i>One government ID — Aadhaar, passport or voter ID</li>
+              </ul>
+              <p class="small muted car-section__foot">Drivers must be 21 or older. The deposit is refunded to the same account within 24 hours of a damage-free return.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shown when ?id= is missing or unknown -->
+      <div class="car-missing reveal" id="car-missing" hidden>
+        <span class="car-missing__icon"><i data-lucide="search"></i></span>
+        <h1 class="car-title">We couldn't find that car</h1>
+        <p class="lead">The link may be old, or the car has left the fleet. Pick another one — there are 12 to choose from.</p>
+        <div class="row row--center car-missing__actions">
+          <a class="btn btn--primary btn--lg" href="cars.html">Browse all cars <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn--outline btn--lg" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="similar">
+    <div class="container">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">Keep looking</span>
+        <h2 class="section-head__title" id="similar-title">Similar cars</h2>
+        <p class="section-head__sub" id="similar-sub"></p>
+      </div>
+      <div class="grid grid--3" id="similar-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/cars.js"></script>
+<script src="js/picker.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/pages/car.js"></script>
+</body>
+</html>

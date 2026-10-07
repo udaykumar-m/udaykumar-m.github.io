@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rides &amp; earnings — Kinetix Captain</title>
+<script>(function(){var d=document.documentElement;if(d.hasAttribute('data-shot'))return;var t=null;try{t=localStorage.getItem('kinetix-theme')}catch(e){}d.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages/captain.css">
+</head>
+<body>
+<header id="captain-header"></header>
+
+<main id="main" tabindex="-1">
+  <section class="section cap-gate" id="cap-gate" hidden>
+    <div class="container">
+      <div class="cap-gate__card card card--pad reveal">
+        <span class="cap-gate__icon"><i data-lucide="bike"></i></span>
+        <span class="eyebrow">Kinetix captain</span>
+        <h1>Captain login</h1>
+        <p class="lead">Log in with your captain mobile to see your rides and earnings.</p>
+        <button type="button" class="btn btn--primary btn--lg" id="gate-login">Log in with mobile <i data-lucide="arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cap-page" id="cap-rides" hidden>
+    <div class="container">
+      <div class="section-head section-head--left reveal">
+        <span class="eyebrow">Captain</span>
+        <h1 class="section-head__title">Rides &amp; earnings</h1>
+        <p class="section-head__sub">You keep 80% of every fare. Payouts reach your bank every Monday.</p>
+      </div>
+
+      <div class="stats stats--cards reveal">
+        <div class="card card--pad stat"><span class="stat__label">Today</span><strong class="stat__value" id="e-today">₹0</strong><span class="tiny muted" id="e-today-sub">0 rides · 0 km</span></div>
+        <div class="card card--pad stat"><span class="stat__label">Last 7 days</span><strong class="stat__value" id="e-week">₹0</strong><span class="tiny muted" id="e-week-sub">0 rides</span></div>
+        <div class="card card--pad stat"><span class="stat__label">Next payout</span><strong class="stat__value" id="e-payout">₹0</strong><span class="tiny muted" id="e-payout-sub">Monday · to your bank</span></div>
+        <div class="card card--pad stat"><span class="stat__label">Rating</span><strong class="stat__value" id="e-rating">5.0 ★</strong><span class="tiny muted" id="e-rating-sub">Lifetime rides</span></div>
+      </div>
+
+      <div class="cap-history reveal reveal--delay-1" id="history"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://unpkg.com/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+<script src="js/data/places.js"></script>
+<script src="js/data/ev.js"></script>
+<script src="js/data/captains.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/ride.js"></script>
+<script src="js/captain.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/captain-nav.js"></script>
+<script src="js/pages/captain-rides.js"></script>
+</body>
+</html>
