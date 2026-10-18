@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClariFlox — Advanced Water Treatment Solutions</title>
+  <meta name="description" content="ClariFlox is a premier provider of water and process treatment solutions, headquartered in Duvvada, Visakhapatnam, Andhra Pradesh. High-performance water treatment chemicals and end-to-end technical services for industrial and municipal applications.">
+  <link rel="icon" type="image/png" href="assets/logo/clariflox-drop.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo nav__logo--mark" aria-label="ClariFlox home">
+        <img src="assets/logo/clariflox-mark.png" alt="" width="46" height="42">
+        <span>CLARIFLOX</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home" class="is-active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#mission">Mission</a>
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta">Contact</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__card">
+        <img class="hero__bg" src="assets/images/hero-water.jpg" alt="" aria-hidden="true">
+        <div class="hero__content">
+          <h1 class="hero__title">Advanced Water Treatment Solutions</h1>
+          <p class="hero__lead">Transforming water quality with cutting-edge chemical solutions and comprehensive technical services for industrial and municipal applications</p>
+          <div class="hero__actions">
+            <a href="#services" class="btn btn--white">Explore Solutions</a>
+            <a href="#contact" class="btn btn--ghost">Get Started</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat-chip">
+              <span class="stat-chip__num">50<span>+</span></span>
+              <span class="stat-chip__label">Years combined experience</span>
+            </div>
+            <div class="stat-chip">
+              <span class="stat-chip__num">6</span>
+              <span class="stat-chip__label">Industries served</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orbit animation: centre flask, two rotating rings of icon discs -->
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit__ring"></div>
+          <div class="orbit__ring orbit__ring--mid"></div>
+          <div class="orbit__ring orbit__ring--inner"></div>
+
+          <div class="orbit__core">
+            <svg viewBox="0 0 24 24"><path d="M8 2h8"/><path d="M10 2v6L5.3 17.2A2.4 2.4 0 0 0 7.5 20.6h9A2.4 2.4 0 0 0 18.7 17.2L14 8V2"/><path d="M6.4 15.3c1.2-.8 2.4-.8 3.6 0s2.4.8 3.6 0 2.4-.8 3.6 0"/></svg>
+          </div>
+
+          <div class="orbit__track orbit__track--outer">
+            <span class="orbit__sat" style="--a:0deg"><i><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></i></span>
+            <span class="orbit__sat" style="--a:180deg"><i><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16" y="3" width="4" height="17" rx="1"/></svg></i></span>
+          </div>
+          <div class="orbit__track orbit__track--mid">
+            <span class="orbit__sat" style="--a:90deg"><i><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></i></span>
+            <span class="orbit__sat" style="--a:270deg"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATEMENT BAND ============ -->
+    <section class="statement">
+      <div class="statement__card">
+        <p><em>Our mission</em> is to deliver innovative, reliable, and sustainable water treatment solutions that empower industries and communities to achieve optimal water quality while protecting our environment for future generations.</p>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__media">
+          <img src="assets/images/about-plant.jpg" alt="Industrial water treatment pipework" loading="lazy">
+          <div class="about__badge">
+            <span class="about__badge-num">50<i>+</i></span>
+            <span class="about__badge-text">Years combined experience</span>
+          </div>
+        </div>
+        <div class="about__body">
+          <span class="eyebrow">About ClariFlox</span>
+          <h2 class="h2 h2--blue">Who We Are</h2>
+          <p>ClariFlox is a premier provider of water and process treatment solutions, headquartered in <strong>Duvvada, Visakhapatnam, Andhra Pradesh</strong>. With a combined experience spanning over <strong>50 years</strong>, our team unites a diverse wealth of technical expertise, deep industry insights, and an unwavering dedication to customer satisfaction.</p>
+          <p>Founded in the heart of Andhra Pradesh, ClariFlox is built on the principles of <strong>integrity, quality, and technical innovation</strong>. Our seasoned professionals have firsthand knowledge of the operational and regulatory challenges that industries face in water and wastewater management.</p>
+
+          <dl class="stats">
+            <div><dt>50+</dt><dd>Years combined experience</dd></div>
+            <div><dt>4</dt><dd>Product lines</dd></div>
+            <div><dt>4</dt><dd>Technical services</dd></div>
+            <div><dt>6</dt><dd>Industries served</dd></div>
+          </dl>
+
+          <div class="about__actions">
+            <a href="#contact" class="btn btn--primary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY CLARIFLOX ============ -->
+    <section class="why">
+      <img class="why__bg" src="assets/images/why-water.jpg" alt="" aria-hidden="true" loading="lazy">
+      <div class="container">
+        <div class="why__head">
+          <h2 class="why__title">Why<br>ClariFlox?</h2>
+          <p class="why__intro">At ClariFlox, we pride ourselves on our customer-centric approach. By combining advanced chemistry with proactive technical services, we ensure your water management systems are efficient, resilient, and sustainable.</p>
+        </div>
+        <div class="why__grid">
+          <article class="glass-card">
+            <span class="glass-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3>Customer-centric approach</h3>
+            <p>Every solution we offer is customized — we listen to your challenges and co-develop answers that improve your performance metrics, regulatory compliance, and environmental stewardship.</p>
+          </article>
+          <article class="glass-card">
+            <span class="glass-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+            </span>
+            <h3>Advanced chemistry, proactive service</h3>
+            <p>By combining advanced chemistry with proactive technical services, we ensure your water management systems are efficient, resilient, and sustainable.</p>
+          </article>
+          <article class="glass-card">
+            <span class="glass-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+            </span>
+            <h3>Continuous improvement</h3>
+            <p>We are committed to evolving with our clients, implementing the latest scientific advancements as part of our continuous improvement philosophy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="section section--soft">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <span class="eyebrow">Our Product Portfolio</span>
+          <h2 class="h2">High-Performance Chemicals</h2>
+          <p>Advanced chemical solutions for optimal water treatment performance</p>
+        </header>
+
+        <div class="grid grid--4">
+          <article class="feature-card">
+            <span class="icon-sq" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+            <h3>Flocculants &amp; Coagulants</h3>
+            <p>Advanced polymeric and inorganic solutions for effective solid-liquid separation and water clarification processes.</p>
+            <ul class="bullets">
+              <li>Enhanced settling rates</li>
+              <li>Superior turbidity removal</li>
+              <li>Optimized dosage efficiency</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <span class="icon-sq" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            </span>
+            <h3>RO Antiscalants</h3>
+            <p>Specialized formulations to protect reverse osmosis systems from fouling and scaling, ensuring peak efficiency and longevity.</p>
+            <ul class="bullets">
+              <li>Membrane protection</li>
+              <li>Extended system life</li>
+              <li>Reduced maintenance costs</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <span class="icon-sq" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </span>
+            <h3>Boiler Treatment Chemicals</h3>
+            <p>Comprehensive internal treatment solutions for preventing scale and corrosion, promoting safe and efficient boiler operation.</p>
+            <ul class="bullets">
+              <li>Scale prevention</li>
+              <li>Corrosion inhibition</li>
+              <li>Enhanced heat transfer</li>
+            </ul>
+          </article>
+          <article class="feature-card">
+            <span class="icon-sq" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="m19.07 4.93-14.14 14.14"/></svg>
+            </span>
+            <h3>Cooling Water Chemicals</h3>
+            <p>Advanced formulations for comprehensive corrosion and deposit control, ensuring sustainable operation of industrial cooling systems.</p>
+            <ul class="bullets">
+              <li>Corrosion control</li>
+              <li>Deposit prevention</li>
+              <li>Biofouling management</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="split">
+          <div class="split__body">
+            <span class="eyebrow">Our Services</span>
+            <h2 class="h2 h2--blue">End-to-End Technical Services</h2>
+            <p>We manufacture and supply a robust portfolio of high-performance water treatment chemicals and deliver comprehensive technical services. End-to-end technical support for optimal water treatment performance.</p>
+            <div class="split__actions">
+              <a href="#contact" class="btn btn--primary">Schedule Consultation</a>
+            </div>
+          </div>
+          <div class="split__media">
+            <img src="assets/images/services-ro-plant.jpg" alt="Technician beside a reverse osmosis water treatment unit" loading="lazy">
+          </div>
+        </div>
+
+        <header class="section-head section-head--center section-head--rule">
+          <h2 class="h2">Technical Services</h2>
+          <p>Comprehensive water treatment solutions tailored to your specific needs</p>
+        </header>
+
+        <div class="grid grid--2 service-grid">
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/images/service-audit.jpg" alt="Gloved hand holding a laboratory beaker of water" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h3>Water Audits &amp; Evaluations</h3>
+              <p>Comprehensive system performance evaluations tailored to unique operational requirements and regulatory standards.</p>
+              <ul class="bullets">
+                <li>System efficiency analysis</li>
+                <li>Performance benchmarking</li>
+                <li>Compliance assessment</li>
+              </ul>
+              <a href="#contact" class="arrow-link" aria-label="Enquire about water audits and evaluations">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/images/service-jar-test.jpg" alt="Laboratory beakers used for jar testing" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h3>Jar Testing &amp; Optimization</h3>
+              <p>Onsite chemical optimization through systematic jar testing to achieve the most cost-effective treatment results.</p>
+              <ul class="bullets">
+                <li>Chemical dosage optimization</li>
+                <li>Cost-effectiveness analysis</li>
+                <li>Real-time adjustments</li>
+              </ul>
+              <a href="#contact" class="arrow-link" aria-label="Enquire about jar testing and optimization">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/images/service-troubleshoot.jpg" alt="Operator adjusting an industrial control panel" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h3>Troubleshooting &amp; Fine-tuning</h3>
+              <p>Expert troubleshooting and fine-tuning of existing treatment programs to enhance reliability and performance.</p>
+              <ul class="bullets">
+                <li>Problem identification</li>
+                <li>System optimization</li>
+                <li>Performance enhancement</li>
+              </ul>
+              <a href="#contact" class="arrow-link" aria-label="Enquire about troubleshooting and fine-tuning">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img src="assets/images/service-training.jpg" alt="Team in a training session at a whiteboard" loading="lazy">
+            </div>
+            <div class="service-card__body">
+              <h3>Technical Support &amp; Training</h3>
+              <p>Hands-on technical support and comprehensive operator training to empower your staff and ensure operational excellence.</p>
+              <ul class="bullets">
+                <li>24/7 technical support</li>
+                <li>Operator training programs</li>
+                <li>Best practices guidance</li>
+              </ul>
+              <a href="#contact" class="arrow-link" aria-label="Enquire about technical support and training">
+                <svg viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section class="section section--soft">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <span class="eyebrow">Industries We Serve</span>
+          <h2 class="h2">Proud partners across diverse sectors</h2>
+          <p>Proud partners to leading organizations across diverse sectors</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+            <h3>Power Generation</h3>
+            <p>Advanced solutions for power plants</p>
+          </article>
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 12h16"/><path d="M12 4v16"/></svg></span>
+            <h3>Textiles</h3>
+            <p>Specialized textile water treatment</p>
+          </article>
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
+            <h3>Food &amp; Beverages</h3>
+            <p>Food-grade water solutions</p>
+          </article>
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg></span>
+            <h3>Pharmaceuticals</h3>
+            <p>Ultra-pure water systems</p>
+          </article>
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg></span>
+            <h3>Manufacturing</h3>
+            <p>Industrial process water</p>
+          </article>
+          <article class="industry-card">
+            <span class="icon-sq" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>
+            <h3>Municipal Utilities</h3>
+            <p>Community water systems</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MISSION / VISION / VALUES ============ -->
+    <section class="section" id="mission">
+      <div class="container">
+        <div class="grid grid--2 mv-grid">
+          <article class="mv-card mv-card--blue">
+            <span class="eyebrow eyebrow--light">Our Mission</span>
+            <h2>To deliver innovative, reliable, and sustainable water treatment solutions that empower industries and communities to achieve optimal water quality while protecting our environment for future generations.</h2>
+            <p>We are committed to excellence in every aspect of our service — from the quality of our chemicals to the expertise of our technical support. Our mission drives us to continuously innovate and adapt, ensuring our clients receive the most effective and environmentally responsible solutions available.</p>
+          </article>
+          <article class="mv-card">
+            <span class="eyebrow">Our Vision</span>
+            <h2>To be the leading provider of water treatment solutions in India and beyond, recognized for our technical expertise, innovative products, and unwavering commitment to customer success.</h2>
+            <p>We envision a future where every industry has access to cutting-edge water treatment technology that not only meets their operational needs but also contributes to a more sustainable and water-secure world.</p>
+          </article>
+        </div>
+
+        <header class="section-head section-head--center section-head--rule values-head">
+          <h2 class="h2">Our Values</h2>
+          <p>The principles that guide everything we do</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3>Integrity</h3>
+            <p>We conduct business with honesty, transparency, and ethical practices in all our interactions.</p>
+          </article>
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+            <h3>Innovation</h3>
+            <p>We continuously seek new technologies and methods to improve water treatment effectiveness.</p>
+          </article>
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.5l7.1-.6z"/></svg></span>
+            <h3>Excellence</h3>
+            <p>We strive for the highest quality in our products, services, and customer relationships.</p>
+          </article>
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
+            <h3>Sustainability</h3>
+            <p>We are committed to environmental stewardship and sustainable business practices.</p>
+          </article>
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3>Partnership</h3>
+            <p>We build long-term relationships based on trust, collaboration, and mutual success.</p>
+          </article>
+          <article class="value-card">
+            <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <h3>Expertise</h3>
+            <p>We leverage our deep technical knowledge and experience to deliver superior solutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+      <div class="container cta__inner">
+        <h2 class="h2">Ready to Transform Your Water Treatment?</h2>
+        <p>Let our experts help you optimize your water treatment systems for maximum efficiency and compliance.</p>
+        <a href="#contact" class="btn btn--primary">Get Started Today</a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--soft" id="contact">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2 class="h2">Get In Touch</h2>
+        </header>
+
+        <div class="contact__grid">
+          <form class="form" id="contactForm" novalidate>
+            <div class="form__row">
+              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form__row">
+              <label for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form__row">
+              <label for="company">Company <span aria-hidden="true">*</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization" required>
+            </div>
+            <div class="form__row">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell us about your water treatment needs..." required></textarea>
+            </div>
+            <p class="form__note" id="formNote" role="status"></p>
+            <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+          </form>
+
+          <aside class="contact__aside">
+            <div class="info-card">
+              <h3>Contact Information</h3>
+              <ul class="info-list">
+                <li>
+                  <span class="icon-sq icon-sq--sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                  <div><strong>Phone</strong><a href="tel:+918498922007">+91 84989 22007</a></div>
+                </li>
+                <li>
+                  <span class="icon-sq icon-sq--sm" aria-hidden="true"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                  <div><strong>Email</strong><a href="mailto:info@clariflox.com">info@clariflox.com</a></div>
+                </li>
+                <li>
+                  <span class="icon-sq icon-sq--sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                  <div><strong>Address</strong><span>Duvvada, Visakhapatnam<br>Andhra Pradesh, India</span></div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-card">
+              <h3>Business Hours</h3>
+              <ul class="hours">
+                <li><span>Monday – Friday</span><strong>9:00 AM – 6:00 PM</strong></li>
+                <li><span>Saturday</span><strong>9:00 AM – 2:00 PM</strong></li>
+                <li><span>Sunday</span><strong>Closed</strong></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#home" class="footer__logo" aria-label="ClariFlox home">
+          <img src="assets/logo/clariflox-mark.png" alt="" width="44" height="40">
+          <span>CLARIFLOX</span>
+        </a>
+        <p>Leading the future of water treatment with innovation, expertise, and commitment to excellence.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Address</h4>
+        <p>Duvvada, Visakhapatnam<br>Andhra Pradesh, India</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <p><a href="tel:+918498922007">+91 84989 22007</a></p>
+        <p><a href="mailto:info@clariflox.com">info@clariflox.com</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Business Hours</h4>
+        <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+        <p>Saturday: 9:00 AM – 2:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 ClariFlox. All rights reserved.</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#mission">Mission</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ============ WHATSAPP ============ -->
+  <a class="whatsapp" href="https://wa.me/918498922007" target="_blank" rel="noopener" aria-label="Chat with ClariFlox on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.78h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.84 9.84 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 6.99c0 5.45-4.44 9.88-9.9 9.88m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.33-1.66a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
+  </a>
+
+  <!-- ============ TOAST ============ -->
+  <div class="toast" id="toast" role="alert" hidden>
+    <div class="toast__head">
+      <span class="toast__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+      </span>
+      <strong>Oops</strong>
+      <span class="toast__time">now</span>
+      <button type="button" class="toast__close" id="toastClose" aria-label="Dismiss">
+        <svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <p class="toast__body">There is a problem sending the mail. Please contact us by <a href="https://wa.me/918498922007" target="_blank" rel="noopener">WhatsApp</a>.</p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

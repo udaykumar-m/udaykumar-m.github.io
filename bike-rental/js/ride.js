@@ -78,7 +78,6 @@
     return q;
   }
   function withinHours(d) { var m = d.getHours() * 60 + d.getMinutes(); return m >= HOURS.open && m <= HOURS.close; }
-  function validPhone(p) { return /^(\+91)?[6-9]\d{9}$/.test(String(p).replace(/[\s-]/g, "")); }
   function validate(state, now) {
     now = now || new Date();
     var s = normalize(state), e = {}, a = find(s.pickup), b = find(s.drop);

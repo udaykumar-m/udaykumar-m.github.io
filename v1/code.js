@@ -1,8 +1,6 @@
  AOS.init({
         duration: 1200,
       })
-    //using jquery makes the work easy compared to javascript
-    //code to remove and add the grayscale class
 
       function type(){
         $('.know').html('<h1><span class="first">Web</span> Developer</h1>');
@@ -28,7 +26,6 @@
         sections.each(function() {
           var top = $(this).offset().top - nav_height,
               bottom = top + $(this).outerHeight();
-          var viewportTop = $("#skills").scrollTop();
           if (cur_pos >= top && cur_pos <= bottom) {
             nav.find('a').removeClass('active');
             sections.removeClass('active');
@@ -49,28 +46,7 @@
         return false;
       });
 
-      //progressbar
-
-      // $(window).scroll(function(){
-      //   if ($('#skills').offset().top-100 < $(window).scrollTop() && $('#skills').offset().top+100 > $(window).scrollTop()){
-      //       //do something
-            
-            
-      //     }
-          
-      // });
-
-          // $('.count').each(function () {
-          //     var $this = $(this);
-          //     console.log($this);
-          //     jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
-          //       duration: 5000,
-          //       easing: 'linear',
-          //       step: function () {
-          //         $this.text(Math.ceil(this.Counter)+ "%");
-          //       }
-          //     });
-            // });
+      // skill percentage counters
         $('.count').each(function () {
             $(this).prop('Counter',0).animate({
                 Counter: $(this).text()

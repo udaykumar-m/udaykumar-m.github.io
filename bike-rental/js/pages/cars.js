@@ -80,7 +80,7 @@
   var state = B.normalize(params);
   var filters = parseFilters(global.location.search);
 
-  // Datalist of pickup points
+  // Fill the search fields from the state
   Object.keys(inputs).forEach(function (k) { inputs[k].value = state[k] || ""; });
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
@@ -269,7 +269,7 @@
     toggle.setAttribute("aria-expanded", String(open));
   });
 
-  // Initial state: URL params if present, otherwise empty fields on the hourly plan
+  // Initial state: URL params if present, otherwise today from the next full hour on the hourly plan
   setZone(state.zone);
   syncPriceRange(false); syncFilterControls(); setMins(); syncAvail(); render();
 })(typeof window !== "undefined" ? window : this);

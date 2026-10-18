@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap');
-
 :root {
   --neon-cyan: #0ff;
   --neon-magenta: #f0f;
@@ -113,16 +111,6 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-}
-
-.center-data h4 {
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: 2px;
-  font-size: 24px;
-  font-weight: 700;
-  color: #fff;
-  margin: 10px 0 5px;
-  text-shadow: 2px 2px 0px var(--neon-magenta);
 }
 
 .cyber-subtitle {
@@ -568,27 +556,6 @@ a {
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
   padding: 15px;
-}
-
-.quest-placeholder-image {
-  width: 100%;
-  height: 150px;
-  background: rgba(0, 255, 255, 0.05);
-  border: 1px dashed var(--neon-cyan);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--neon-cyan);
-  border-radius: 8px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 12px;
-  text-align: center;
-  gap: 10px;
-}
-
-.quest-placeholder-image i {
-  font-size: 30px;
 }
 
 .quest-content {
@@ -1125,7 +1092,7 @@ a {
     gap: 30px;
 }
 
-.contact-left-panel, .contact-right-panel {
+.contact-left-panel {
     flex: 1;
     background: rgba(20, 20, 30, 0.6);
     border: 1px solid var(--glass-border);

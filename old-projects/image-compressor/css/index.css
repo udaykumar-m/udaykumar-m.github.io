@@ -47,8 +47,6 @@ body {
 
 #wrapper-home{
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     min-height: 90vh;
     background: #161623;
 }

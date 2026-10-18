@@ -39,7 +39,6 @@ p { max-width: 68ch; }
   font-size: var(--fs-tiny); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   color: var(--accent-text);
 }
-.display { font-family: var(--font-display); }
 .text-center { text-align: center; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
