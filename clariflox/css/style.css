@@ -35,7 +35,12 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  /* keep in-page links from landing underneath the sticky nav */
+  scroll-padding-top: calc(var(--nav-h) + 1px); /* + nav border */
+  -webkit-text-size-adjust: 100%;
+}
 body {
   margin: 0;
   font-family: var(--font);
@@ -270,15 +275,25 @@ svg { display: block; }
   background: var(--blue-deep);
   isolation: isolate;
 }
-.hero__bg {
+.hero__slides {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+/* Crossfade: the new slide fades in on top while the previous one stays fully visible underneath */
+.hero__slide {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -2;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
 }
+.hero__slide.is-prev { opacity: 1; z-index: 1; }
+.hero__slide.is-active { opacity: 1; z-index: 2; }
 .hero__card::after {
   content: "";
   position: absolute;
