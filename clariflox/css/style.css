@@ -262,14 +262,16 @@ svg { display: block; }
 /* ==========================================================================
    HERO
    ========================================================================== */
-.hero { padding: 24px var(--gutter) 0; }
+.hero { padding: 24px var(--gutter); }
 .hero__card {
   position: relative;
   max-width: calc(var(--container) + 120px);
   display: flex;
   align-items: center;
   margin: 0 auto;
-  min-height: 580px;
+  /* nav + hero card (with its 24px top/bottom margin) fill the first screen */
+  min-height: calc(100vh - var(--nav-h) - 1px - 48px);
+  min-height: calc(100svh - var(--nav-h) - 1px - 48px);
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: var(--blue-deep);
@@ -327,28 +329,6 @@ svg { display: block; }
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 
-
-/* ==========================================================================
-   STATEMENT BAND
-   ========================================================================== */
-.statement { padding: 24px var(--gutter) 0; }
-.statement__card {
-  max-width: calc(var(--container) + 120px);
-  margin: 0 auto;
-  padding: 72px 48px;
-  border-radius: var(--radius-xl);
-  background: var(--blue);
-  color: #fff;
-  text-align: center;
-}
-.statement__card p {
-  max-width: 880px;
-  margin: 0 auto;
-  font-size: clamp(20px, 2.4vw, 28px);
-  font-weight: 400;
-  line-height: 1.45;
-}
-.statement__card em { font-style: italic; font-weight: 600; }
 
 /* ==========================================================================
    ABOUT
@@ -800,14 +780,12 @@ svg { display: block; }
   .nav__links a:not(.btn)::after { display: none; }
   .nav__cta { margin: 16px 0 0; align-self: flex-start; }
 
-  .hero { padding: 16px 16px 0; }
-  .hero__card { min-height: 0; border-radius: var(--radius-lg); }
+  .hero { padding: 16px; }
+  .hero__card { min-height: calc(100svh - var(--nav-h) - 1px - 32px); border-radius: var(--radius-lg); }
   .hero__content { padding: 64px 32px 40px; max-width: none; }
   .hero__card::after { background: linear-gradient(180deg, rgba(13, 42, 96, 0.55) 0%, rgba(13, 42, 96, 0.35) 100%); }
   .hero__title { max-width: none; }
 
-  .statement { padding: 16px 16px 0; }
-  .statement__card { padding: 48px 28px; border-radius: var(--radius-lg); }
 
   .about { padding-top: 80px; }
   .about__grid { grid-template-columns: 1fr; gap: 48px; }
