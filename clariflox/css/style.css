@@ -3,10 +3,14 @@
    ========================================================================== */
 
 :root {
-  --blue: #2563eb;
-  --blue-dark: #1d4ed8;
-  --blue-deep: #1e3a8a;
-  --blue-tint: #eaf0fd;
+  /* brand blues sampled from the ClariFlox logo: drop (light to deep) and wordmark navy */
+  --blue: #026da0;
+  --blue-light: #019bd8;
+  --blue-dark: #004276;
+  --blue-deep: #012043;
+  --blue-tint: #e6f4fa;
+  --grad: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+  --grad-deep: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
 
   --ink: #0f172a;
   --text: #334155;
@@ -117,14 +121,14 @@ svg { display: block; }
   letter-spacing: 0.01em;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, filter .18s ease, transform .18s ease;
 }
 .btn:active { transform: translateY(1px); }
 .btn--sm { min-height: 42px; padding: 0 22px; font-size: 13px; }
 .btn--block { width: 100%; }
 
-.btn--primary { background: var(--blue); color: #fff; }
-.btn--primary:hover { background: var(--blue-dark); }
+.btn--primary { background: var(--grad); color: #fff; }
+.btn--primary:hover { filter: brightness(0.9); }
 
 .btn--white { background: #fff; color: var(--blue); }
 .btn--white:hover { background: var(--blue-tint); }
@@ -146,7 +150,7 @@ svg { display: block; }
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: var(--blue);
+  background: var(--grad);
   color: #fff;
   flex-shrink: 0;
 }
@@ -203,13 +207,7 @@ svg { display: block; }
   min-height: var(--nav-h);
 }
 .nav__logo { display: inline-flex; align-items: center; gap: 12px; }
-.nav__logo--mark img { width: auto; height: 42px; }
-.nav__logo--mark span {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  color: var(--blue-deep);
-}
+.nav__logo--full img { width: auto; height: 78px; }
 
 .nav__links { display: flex; align-items: center; gap: 34px; }
 .nav__links a:not(.btn) {
@@ -301,7 +299,7 @@ svg { display: block; }
   position: absolute;
   inset: 0;
   /* light scrim behind the text only; the right half of the photo stays untinted */
-  background: linear-gradient(90deg, rgba(13, 42, 96, 0.55) 0%, rgba(13, 42, 96, 0.3) 45%, rgba(13, 42, 96, 0) 75%);
+  background: linear-gradient(90deg, rgba(1, 32, 67, 0.55) 0%, rgba(1, 32, 67, 0.3) 45%, rgba(1, 32, 67, 0) 75%);
   z-index: -1;
 }
 .hero__content {
@@ -355,7 +353,7 @@ svg { display: block; }
   height: 150px;
   padding: 18px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--grad);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -397,7 +395,7 @@ svg { display: block; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(9, 30, 72, 0.62);
+  background: rgba(1, 32, 67, 0.62);
   z-index: -1;
 }
 .why__head {
@@ -520,12 +518,12 @@ svg { display: block; }
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--grad);
   color: #fff;
-  transition: background-color .18s ease, transform .18s ease;
+  transition: filter .18s ease, transform .18s ease;
 }
 .arrow-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.arrow-link:hover { background: var(--blue-dark); transform: translate(1px, -1px); }
+.arrow-link:hover { filter: brightness(0.9); transform: translate(1px, -1px); }
 
 /* ==========================================================================
    MISSION / VISION / VALUES
@@ -544,7 +542,7 @@ svg { display: block; }
   color: var(--ink);
 }
 .mv-card p { margin-top: 20px; font-size: 15px; }
-.mv-card--blue { background: var(--blue); border-color: var(--blue); color: #fff; }
+.mv-card--blue { background: var(--grad-deep); border-color: transparent; color: #fff; }
 .mv-card--blue h2 { color: #fff; }
 .mv-card--blue p { color: rgba(255, 255, 255, 0.88); }
 
@@ -609,7 +607,7 @@ svg { display: block; }
 .form input:focus, .form textarea:focus {
   outline: none;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px rgba(2, 109, 160, 0.18);
 }
 .form input.is-invalid, .form textarea.is-invalid { border-color: #dc2626; }
 .form__note { margin: -6px 0 14px; min-height: 1.4em; font-size: 14px; color: var(--muted); }
@@ -690,7 +688,7 @@ svg { display: block; }
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-.footer { background: var(--blue); color: rgba(255, 255, 255, 0.86); }
+.footer { background: var(--grad-deep); color: rgba(255, 255, 255, 0.86); }
 .footer__grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -753,6 +751,7 @@ svg { display: block; }
   :root { --nav-h: 72px; }
   .section { padding: 72px 0; }
 
+  .nav__logo--full img { height: 60px; }
   .nav__toggle { display: flex; }
   .nav__links {
     position: absolute;
@@ -783,7 +782,7 @@ svg { display: block; }
   .hero { padding: 16px; }
   .hero__card { min-height: calc(100svh - var(--nav-h) - 1px - 32px); border-radius: var(--radius-lg); }
   .hero__content { padding: 64px 32px 40px; max-width: none; }
-  .hero__card::after { background: linear-gradient(180deg, rgba(13, 42, 96, 0.55) 0%, rgba(13, 42, 96, 0.35) 100%); }
+  .hero__card::after { background: linear-gradient(180deg, rgba(1, 32, 67, 0.55) 0%, rgba(1, 32, 67, 0.35) 100%); }
   .hero__title { max-width: none; }
 
 
